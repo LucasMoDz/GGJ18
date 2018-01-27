@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114134599161717996}
   - component: {fileID: 114797169718676208}
   - component: {fileID: 114810401839391008}
+  - component: {fileID: 225986114498511534}
   m_Layer: 5
   m_Name: Manager Symbols
   m_TagString: Untagged
@@ -90,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a480b588edc0d84e9eb15d4e957d1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 224306421283673016}
 --- !u!222 &222138961051736990
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -115,3 +115,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 93.3}
   m_SizeDelta: {x: 0, y: -1521.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225986114498511534
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514861536811782}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
