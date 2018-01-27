@@ -2,20 +2,20 @@
 using System;
 using System.Collections.Generic;
 
-//TODO: define alien race
+
+public enum Meaning {
+	WAR,
+	PEACE,
+	NEUTRAL
+}
 
 [Serializable]
 public class Symbol {
-	public enum Meaning {
-		WAR,
-		PEACE,
-		NEUTRAL
-	}
+	
 	public Meaning meaning;
 	public Sprite img;
 
-	public override string ToString ()
-	{
+	public override string ToString() {
 		return string.Format ("[Symbol {0} {1}]", meaning, img.name);
 	}
 
@@ -30,9 +30,48 @@ public class AlienAlphabet {
 	public Symbol[] symbols;
 }
 
+public class Phrase {
+	public List<Symbol> symbols;
+
+	public Meaning getGlobalMeaning() {
+		int neutral = 0;
+		int war = 0;
+		int peace = 0;
+		foreach(Symbol sym in symbols) {
+			if(sym.meaning.Equals(Meaning.NEUTRAL)) {
+				neutral++;
+			}
+			if(sym.meaning.Equals(Meaning.WAR)){
+				war++;
+			}
+			if(sym.meaning.Equals(Meaning.PEACE)){
+				peace++;
+			}
+		}
+		if(neutral == 1) {
+			return Meaning.NEUTRAL;
+		}
+		else if(war > peace) {
+			return Meaning.WAR;
+		}
+		else if(war < peace) {
+			return Meaning.PEACE;
+		}
+		return Meaning.NEUTRAL; 
+	}
+
+	public override string ToString () {
+		string res = "PHRASE=[ ";
+		foreach(Symbol sym in symbols) {
+			res += sym + " ";
+		}
+		res += "]";
+		return res;
+	}
+}
+
 
 public class PhraseGenerator : MonoBehaviour {
-
 
 	[Header("Difficulty")]
 	public int easyTries;
@@ -42,31 +81,41 @@ public class PhraseGenerator : MonoBehaviour {
 	public int currentAlphabet;
 	public AlienAlphabet[] alphabets;
 
-
 	int tries;
 
-	public List<Symbol> generatePhrase() {
-		List<Symbol> symbols = new List<Symbol>();
-		int limit = 0;
-		if(tries < easyTries) {
-			limit = 1;
-		}
-		else if(tries < mediumTries) {
-			limit = 2;
-		}
-		else {
-			limit = 3;
-		}
+	Phrase lastPhrase;
 
-		for(int i=0; i<limit; i++) {
-			Symbol candidate;
-			do {
-				candidate = randomSymbol();
-			} while(isDuplicate(symbols, candidate) || (hasNeutral(symbols) && candidate.meaning.Equals(Symbol.Meaning.NEUTRAL)));
-			symbols.Add(candidate);
-		}
+	public Phrase generatePhrase(Meaning meaning) {
+		Phrase ph = new Phrase();
+		do {
+			List<Symbol> symbols = new List<Symbol>();
+			int limit = 0;
+			if(tries < easyTries) {
+				limit = 1;
+			}
+			else if(tries < mediumTries) {
+				limit = 2;
+			}
+			else {
+				limit = 3;
+			}
+
+			for(int i=0; i<limit; i++) {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while( (isDuplicate(symbols, candidate) || (hasNeutral(symbols) && candidate.meaning.Equals(Meaning.NEUTRAL))) || ( limit == 2 && candidate.meaning.Equals(Meaning.NEUTRAL)) );
+				symbols.Add(candidate);
+			}
+			ph.symbols = symbols;
+		} while(!ph.getGlobalMeaning().Equals(meaning));
 		tries++;
-		return symbols;
+		lastPhrase = ph;
+		return ph;
+	}
+
+	public void reset() {
+		tries = 0;
 	}
 
 	Symbol randomSymbol() {
@@ -76,7 +125,7 @@ public class PhraseGenerator : MonoBehaviour {
 	bool hasNeutral(List<Symbol> syms) {
 		bool neutral = false;
 		foreach(Symbol sym in syms) {
-			if(sym.meaning.Equals(Symbol.Meaning.NEUTRAL)){
+			if(sym.meaning.Equals(Meaning.NEUTRAL)) {
 				neutral = true;
 			}
 		}
@@ -94,20 +143,86 @@ public class PhraseGenerator : MonoBehaviour {
 	}
 
 	void Start() {
-		tries = 0;
-//		for(int i=0; i<20; i++) {
-//			var syms = generatePhrase();
-//			printPhrase(syms);
-//		}
-	}
+		reset();
 
-	void printPhrase(List<Symbol> syms) {
-		string res = "PHRASE=[ ";
-		foreach(Symbol sym in syms) {
-			res += sym + " ";
+		for(int i=0; i<10; i++) {
+			var phrase = generatePhrase(Meaning.NEUTRAL);
+			Debug.Log(phrase);
+			phrase = replaceNeutral();
+			Debug.Log("REPLACED " + phrase);
 		}
-		res += "]";
-		Debug.Log(res);
+
+//		for(int i=0; i<10; i++) {
+//			Debug.Log(generatePhrase(Meaning.WAR));
+//		}
+//		reset();
+//		for(int i=0; i<10; i++) {
+//			Debug.Log(generatePhrase(Meaning.PEACE));
+//		}
+//		reset();
+//		for(int i=0; i<10; i++) {
+//			Debug.Log(generatePhrase(Meaning.NEUTRAL));
+//		}
+//		reset();
 	}
 
+	public Phrase replaceNeutral() {
+		int neutral = 0;
+		int war = 0;
+		int peace = 0;
+		foreach(Symbol sym in lastPhrase.symbols) {
+			if(sym.meaning.Equals(Meaning.NEUTRAL)) {
+				neutral++;
+			}
+			if(sym.meaning.Equals(Meaning.WAR)) {
+				war++;
+			}
+			if(sym.meaning.Equals(Meaning.PEACE)) {
+				peace++;
+			}
+		}
+		if(neutral == 0) {
+			return lastPhrase;
+		}
+		else if(neutral == 1) {
+			if(war > peace) {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while(candidate.meaning.Equals(Meaning.NEUTRAL) && !candidate.meaning.Equals(Meaning.WAR));
+				Debug.Log(candidate);
+				for(int i=0; i<lastPhrase.symbols.Count; i++) {
+					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
+						lastPhrase.symbols[i] = candidate;
+					}
+				}
+			}
+			else if(war < peace) {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while(candidate.meaning.Equals(Meaning.NEUTRAL) && !candidate.meaning.Equals(Meaning.PEACE));
+
+				for(int i=0; i<lastPhrase.symbols.Count; i++) {
+					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
+						lastPhrase.symbols[i] = candidate;
+					}
+				}
+			}
+			else {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while(candidate.meaning.Equals(Meaning.NEUTRAL));
+
+				for(int i=0; i<lastPhrase.symbols.Count; i++) {
+					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
+						lastPhrase.symbols[i] = candidate;
+					}
+				}
+			}
+		}
+
+		return lastPhrase;
+	}
 }
