@@ -41,27 +41,24 @@ public class SpaceShipHandler : MonoBehaviour {
         }
     }
 
+	public void attack() {
+		StopAllCoroutines();
+		shipObjects[currentRace].GetComponent<SpaceShip>().attack();
+		earthObject.GetComponent<EarthEnergyHandler>().damage();
+	}
+
+	public void reset() {
+		for(int i=0; i<shipObjects.Length; i++) {
+			shipObjects[i].GetComponent<SpaceShip>().reset();
+		}
+	}
+
     
-    public void SetCurrentSprite (int raceName)
-    {
+    public void SetCurrentSprite (int raceName) {
 		currentRace = raceName;
 		for(int i=0; i<shipObjects.Length; i++) {
 			shipObjects[i].SetActive(false);
 		}
 		shipObjects[currentRace].SetActive(true);
-
-//        switch (raceName) {
-//            case 0:
-//                this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[0];
-//                break;
-//
-//            case 1:
-//                this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[1];
-//                break;
-//
-//            case 2:
-//                this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[2];
-//                break;
-//        }
     }
 }

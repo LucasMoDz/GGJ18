@@ -21,7 +21,6 @@ public class PointMgr : MonoBehaviour {
 
 	public void spaceShipWrong() {
 		spaceShipMultiplier = 1;
-		currentPoints = (int)Mathf.Clamp(currentPoints - 100, 0, Mathf.Infinity);
 	}
 
 	void Start () {

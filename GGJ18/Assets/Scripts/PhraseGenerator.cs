@@ -98,7 +98,7 @@ public class PhraseGenerator : MonoBehaviour {
 		Phrase ph = new Phrase();
 
         Meaning meaning = GameManagerTopics.GetLastMeaning(); //This is the intention
-		//currentAlphabet = GameManagerTopics.GetLastRace();
+		currentAlphabet = GameManagerTopics.GetLastRace();
 
 		do {
 			List<Symbol> symbols = new List<Symbol>();

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EarthEnergyHandler : MonoBehaviour {
 
     public int earthEnergyValue = 3;
+
+	public GameObject[] shields;
+	public Image laser;
 
     void OnTriggerEnter2D(Collider2D coll)
     {
@@ -16,6 +20,35 @@ public class EarthEnergyHandler : MonoBehaviour {
         CheckEnergy();
     }
 
+	public void damage() {
+		earthEnergyValue -= 1;
+		CheckEnergy();
+	}
+
+	public void attack() {
+		
+		StartCoroutine(fill(.8f));
+	}
+
+	public void reset() {
+		laser.fillAmount = 0;
+	}
+
+	IEnumerator fill(float time) {
+		yield return new WaitForSeconds(.5f);
+		float currTime = 0f;
+		while(currTime < time) {
+			//Debug.Log(currTime/time);
+			currTime += Time.deltaTime;
+			laser.fillAmount = currTime/time;
+			yield return null;
+		}
+		laser.fillAmount = 1;
+
+
+	}
+
+
 
     public void CheckEnergy ()
     {
@@ -26,7 +59,8 @@ public class EarthEnergyHandler : MonoBehaviour {
                 //Far partire effetto distruzione della prima barriera
 
                 // Turn off shield earth
-                this.transform.GetChild(0).gameObject.SetActive(false);
+                //transform.GetChild(0).gameObject.SetActive(false);
+				shields[0].gameObject.SetActive(false);
                 break;
 
             case 1:
@@ -34,7 +68,8 @@ public class EarthEnergyHandler : MonoBehaviour {
                 //Far partire effetto distruzione della prima barriera
 
                 // Turn off shield earth
-                this.transform.GetChild(1).gameObject.SetActive(false);
+                //this.transform.GetChild(1).gameObject.SetActive(false);
+				shields[1].gameObject.SetActive(false);
                 break;
 
             case 0:

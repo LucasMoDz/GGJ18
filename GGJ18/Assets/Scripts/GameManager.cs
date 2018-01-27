@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
 		GamePhase();
 	}
 
+	IEnumerator delayedGamePhase(float delay) {
+		yield return new WaitForSeconds(delay);
+		GamePhase();
+	}
+
     private void GamePhase()
     {
         // Randomize race
@@ -56,7 +61,10 @@ public class GameManager : MonoBehaviour
         SliderEvents.SliderActivation(true);
 
         // Move space ship
-        SpaceshipEvents.moveToPosition(timeToReachEarth);
+		SpaceshipEvents.moveToPosition(timeToReachEarth);
+
+		spaceShip.reset();
+		spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
     }
 
 	public void handleAnswer(Meaning meaning) {
@@ -66,27 +74,48 @@ public class GameManager : MonoBehaviour
 		if(meaning.Equals(Meaning.PEACE)) {
 			if(lastMeaning.Equals(Meaning.PEACE)) {
 				Debug.Log("RIGHT");
+				spaceShip.StopAllCoroutines();
+				//TODO love animation
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
+				StartCoroutine(delayedGamePhase(2f));
+
 			}
 			else {
 				Debug.Log("WRONG");
 				pointMgr.spaceShipWrong();
+				spaceShip.attack();
+				StartCoroutine(delayedGamePhase(2f));
+
 			}
 		}
 	 	else if(meaning.Equals(Meaning.WAR)) {
 			if(lastMeaning.Equals(Meaning.WAR)) {
 				Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
+				spaceShip.StopAllCoroutines();
+				//TODO explosion effect
+				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
+				StartCoroutine(delayedGamePhase(2f));
+
 			}
 			else {
 				Debug.Log("WRONG");
+				//TODO explosion effect
+				//TODO malus
 				pointMgr.spaceShipWrong();
+				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
+				spaceShip.StopAllCoroutines();
+				StartCoroutine(delayedGamePhase(2f));
 			}
 		}
 		else if(meaning.Equals(Meaning.NEUTRAL)) {
 			if(lastMeaning.Equals(Meaning.NEUTRAL)) {
 				Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
+				spaceShip.StopAllCoroutines();
+				//TODO neutral effect?
+				StartCoroutine(delayedGamePhase(2f));
+
 			}
 			else {
 				if(lastMeaning.Equals(Meaning.WAR) || lastMeaning.Equals(Meaning.PEACE)) {
