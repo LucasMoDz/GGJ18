@@ -7,7 +7,7 @@ public class PointMgr : MonoBehaviour {
 	public int currentPoints;
 
 	public void init() {
-		spaceShipMultiplier = 0;
+		spaceShipMultiplier = 1;
 	}
 
 	public void spaceShipRight(float timeLeft, float totalTime) {
@@ -15,7 +15,7 @@ public class PointMgr : MonoBehaviour {
 	}
 
 	public void spaceShipWrong() {
-		spaceShipMultiplier = 0;
+		spaceShipMultiplier = 1;
 		currentPoints = (int)Mathf.Clamp(currentPoints - 100, 0, Mathf.Infinity);
 	}
 
