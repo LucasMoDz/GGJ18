@@ -10,19 +10,22 @@ public class SymbolButton : MonoBehaviour {
     {
         if(symbolValue == -1)
         {
-            this.gameObject.GetComponent<Image>().color = Color.red;
+            //this.gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            this.gameObject.transform.GetChild(1).GetComponent<Image>().color = Color.red;
         } else if(symbolValue == 1)
         {
-            this.gameObject.GetComponent<Image>().color = Color.green;
+            //this.gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            this.gameObject.transform.GetChild(1).GetComponent<Image>().color = Color.green;
         } else if (symbolValue == 0)
         {
-            this.gameObject.GetComponent<Image>().color = Color.grey;
+            //this.gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            this.gameObject.transform.GetChild(1).GetComponent<Image>().color = Color.white;
         }
     }
 
     public void ResetButtonColor ()
     {
-        this.gameObject.GetComponent<Image>().color = Color.white;
+        this.gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color32(255,255,255, 0);
     }
 
 }
