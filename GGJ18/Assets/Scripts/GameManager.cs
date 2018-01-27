@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
     private void GamePhase()
     {
         // Randomize race
-        RandomRace();
+        SpaceshipEvents.setSprite(Random.Range(0, 3));
 
-        // Set lastMeaning variable (that will be called by PhraseGenerator
+        // Set lastMeaning variable (that will be called by PhraseGenerator)
         var meanings = UtilitiesGen.GetEnumValues<Meaning>();
         lastMeaning = meanings[Random.Range(0, meanings.Length)];
 
@@ -46,26 +46,5 @@ public class GameManager : MonoBehaviour
 
         // Move space ship
         SpaceshipEvents.moveToPosition(timeToReachEarth);
-    }
-	
-    public void RandomRace()
-    {
-        int randomValue = Random.Range(0, 3);
-        string raceName = "null";
-
-        switch (randomValue)
-        {
-            case 0:
-                raceName = "rept";
-                break;
-            case 1:
-                raceName = "robot";
-                break;
-            case 2:
-                raceName = "bigHead";
-                break;
-        }
-        
-        SpaceshipEvents.setSprite(raceName);
     }
 }
