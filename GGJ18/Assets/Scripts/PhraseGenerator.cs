@@ -184,18 +184,18 @@ public class PhraseGenerator : MonoBehaviour {
     {
         PhraseEvents.GetPhrase = generatePhrase;
 
-		for(int i=0; i<10; i++) {
-			var ph = generatePhrase(); //only war and peace intention
-			if(!ph.getGlobalMeaning().Equals(Meaning.PEACE)) {
-				Debug.Log("NOT REALLY INTENTION" + ph + " " + ph.getGlobalMeaning());
-				changeNeutral(Meaning.PEACE);
-				Debug.Log("CHANGED" + ph + " " + ph.getGlobalMeaning());
-			}
-			else {
-				Debug.Log("OK" + ph + " " + ph.getGlobalMeaning());
-
-			}
-		}
+//		for(int i=0; i<10; i++) {
+//			var ph = generatePhrase(); //only war and peace intention
+//			if(!ph.getGlobalMeaning().Equals(Meaning.PEACE)) {
+//				Debug.Log("NOT REALLY INTENTION" + ph + " " + ph.getGlobalMeaning());
+//				changeNeutral(Meaning.PEACE);
+//				Debug.Log("CHANGED" + ph + " " + ph.getGlobalMeaning());
+//			}
+//			else {
+//				Debug.Log("OK" + ph + " " + ph.getGlobalMeaning());
+//
+//			}
+//		}
 
     }
 
