@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PointMgr : MonoBehaviour {
 
 	int spaceShipMultiplier;
 	public int currentPoints;
+	public Text pointsTxt;
 
 	public void init() {
 		spaceShipMultiplier = 1;
@@ -22,5 +24,10 @@ public class PointMgr : MonoBehaviour {
 	void Start () {
 		
 	}
+
+	void Update() {
+		pointsTxt.text = currentPoints.ToString();
+	}
+
 
 }
