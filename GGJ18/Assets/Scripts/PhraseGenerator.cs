@@ -123,7 +123,7 @@ public class PhraseGenerator : MonoBehaviour {
 		} while(!ph.getGlobalMeaning().Equals(meaning));
 
 
-		if(UnityEngine.Random.Range(0, 10) > 7) { //NEUTRAL PROBABILITY
+		if(UnityEngine.Random.Range(0, 10) > 7 && !forcedNotNeutral) { //NEUTRAL PROBABILITY
 			do {
 				List<Symbol> symbols = new List<Symbol>();
 				int limit = 0;

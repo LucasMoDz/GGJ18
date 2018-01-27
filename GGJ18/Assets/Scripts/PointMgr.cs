@@ -13,7 +13,10 @@ public class PointMgr : MonoBehaviour {
 	}
 
 	public void spaceShipRight(float timeLeftPerc) {
-		currentPoints += (spaceShipMultiplier - (int)(timeLeftPerc*10));
+		//Debug.Log( 100f*timeLeftPerc );
+		
+		currentPoints += (spaceShipMultiplier + (int)(timeLeftPerc*100f));
+		spaceShipMultiplier++;
 	}
 
 	public void spaceShipWrong() {

@@ -60,24 +60,37 @@ public class GameManager : MonoBehaviour
     }
 
 	public void handleAnswer(Meaning meaning) {
+
+		Debug.Log(meaning);
+
 		if(meaning.Equals(Meaning.PEACE)) {
-			if(lastMeaning.Equals(Meaning.PEACE))
+			if(lastMeaning.Equals(Meaning.PEACE)) {
+				Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-			else 
-				pointMgr.spaceShipWrong();
-		}
-	 	else if(meaning.Equals(Meaning.WAR)) {
-			if(lastMeaning.Equals(Meaning.WAR)) 
-				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-			else 
+			}
+			else {
+				Debug.Log("WRONG");
 				pointMgr.spaceShipWrong();
 			}
+		}
+	 	else if(meaning.Equals(Meaning.WAR)) {
+			if(lastMeaning.Equals(Meaning.WAR)) {
+				Debug.Log("RIGHT");
+				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
+			}
+			else {
+				Debug.Log("WRONG");
+				pointMgr.spaceShipWrong();
+			}
+		}
 		else if(meaning.Equals(Meaning.NEUTRAL)) {
 			if(lastMeaning.Equals(Meaning.NEUTRAL)) {
+				Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
 			}
 			else {
 				if(lastMeaning.Equals(Meaning.WAR) || lastMeaning.Equals(Meaning.PEACE)) {
+					Debug.Log("NEW PHRASE");
 					SymbolsEvents.ActivatePanel(PhraseEvents.GetPhrase(true).symbols);
 				}
 			}
