@@ -1,24 +1,18 @@
 ﻿using UnityEngine;
 
-public static class AnswerEvents
-{
-	public delegate Meaning Answer();
-	public static Answer GetAnswerMeaning;
-}
-
 public class ManagerFooter : MonoBehaviour
-
-
 {
+	public GameManager gameManager;
+
 	public void sendPeace() {
-		
+		gameManager.handleAnswer(Meaning.PEACE);
 	}
 
 	public void sendWar() {
-		
+		gameManager.handleAnswer(Meaning.WAR);
 	}
 
 	public void sendNeutral() {
-		
+		gameManager.handleAnswer(Meaning.NEUTRAL);
 	}
 }

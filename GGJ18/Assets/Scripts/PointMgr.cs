@@ -10,8 +10,8 @@ public class PointMgr : MonoBehaviour {
 		spaceShipMultiplier = 1;
 	}
 
-	public void spaceShipRight(float timeLeft, float totalTime) {
-		currentPoints += (spaceShipMultiplier - (int)(timeLeft/totalTime*10));
+	public void spaceShipRight(float timeLeftPerc) {
+		currentPoints += (spaceShipMultiplier - (int)(timeLeftPerc*10));
 	}
 
 	public void spaceShipWrong() {

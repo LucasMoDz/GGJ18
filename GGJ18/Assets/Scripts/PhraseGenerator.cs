@@ -76,7 +76,7 @@ public class Phrase {
 public static class PhraseEvents
 {
     public static Phrases GetPhrase;
-    public delegate Phrase Phrases();
+	public delegate Phrase Phrases(bool forcedNotNeutral = false);
 }
 
 public class PhraseGenerator : MonoBehaviour {
@@ -93,7 +93,7 @@ public class PhraseGenerator : MonoBehaviour {
 
 	Phrase lastPhrase;
 
-	public Phrase generatePhrase()
+	public Phrase generatePhrase(bool forcedNotNeutral = false)
     {
 		Phrase ph = new Phrase();
 
