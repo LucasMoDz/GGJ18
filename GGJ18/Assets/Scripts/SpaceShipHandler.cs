@@ -13,6 +13,7 @@ public class SpaceShipHandler : MonoBehaviour {
 
     public GameObject earthObject;
     public Sprite[] spaceshipSprite;
+	public float remainingTimePerc;
 
     public void Awake()
     {
@@ -23,11 +24,11 @@ public class SpaceShipHandler : MonoBehaviour {
     public IEnumerator MoveToPosition(float timeToReachEarth)
     {
         var currentPos = transform.position;
-        var t = 0f;
-        while (t < 1)
-        {
-            t += Time.deltaTime / timeToReachEarth;
-            transform.position = Vector3.Lerp(currentPos, earthObject.transform.position, t);
+		remainingTimePerc = 0f;
+		while (remainingTimePerc < 1)
+		{
+			remainingTimePerc += Time.deltaTime / timeToReachEarth;
+			transform.position = Vector3.Lerp(currentPos, earthObject.transform.position, remainingTimePerc);
             yield return null;
         }
     }
