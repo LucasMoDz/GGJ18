@@ -22,7 +22,8 @@ public class SpaceShipHandler : MonoBehaviour {
     }
 
     public IEnumerator MoveToPosition(float timeToReachEarth)
-    {
+	{
+		transform.position = new Vector3(140.0f, 500.0f, 0.0f);
         var currentPos = transform.position;
 		remainingTimePerc = 0f;
 		while (remainingTimePerc < 1)
