@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 224493408557590170}
   - component: {fileID: 222288163757233634}
   - component: {fileID: 114192341945015834}
+  - component: {fileID: 225017198235444476}
   m_Layer: 5
   m_Name: Frame (5)
   m_TagString: Untagged
@@ -217,3 +218,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225017198235444476
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847751517995704}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
