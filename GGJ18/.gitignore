@@ -42,6 +42,7 @@ ehthumbs.db
 *.db-journal
 *.db-journal.meta
 
+/obj/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Bb]uild/
