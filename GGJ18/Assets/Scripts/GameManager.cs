@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
         // Set lastMeaning variable (that will be called by PhraseGenerator)
         var meanings = UtilitiesGen.GetEnumValues<Meaning>();
-        lastMeaning = meanings[Random.Range(0, meanings.Length)];
+        lastMeaning = meanings[Random.Range(0, meanings.Length-1)]; //only war and peace intention
 
         // Get symbols and generate symbols class
         SymbolsEvents.ActivatePanel(PhraseEvents.GetPhrase().symbols);
