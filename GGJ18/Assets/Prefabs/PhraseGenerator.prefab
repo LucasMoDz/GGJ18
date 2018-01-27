@@ -55,11 +55,81 @@ MonoBehaviour:
   mediumTries: 7
   currentAlphabet: 0
   alphabets:
-  - name: TEST
+  - name: ROBOT
     symbols:
     - meaning: 1
       img: {fileID: 1756213588907064, guid: 8a85d4d116567ba4d98bc790474b26ea, type: 2}
-    - meaning: 0
-      img: {fileID: 1296802861074846, guid: ad8f71a5050826047baad6c7fc5104e1, type: 2}
     - meaning: 2
+      img: {fileID: 1296802861074846, guid: ad8f71a5050826047baad6c7fc5104e1, type: 2}
+    - meaning: 0
       img: {fileID: 1497468571109206, guid: d0c207a63b21d9d4d9f26f674df555d1, type: 2}
+    - meaning: 2
+      img: {fileID: 1756150816410688, guid: 0b3b3a5894a06c443b63fa9f303b35a5, type: 2}
+    - meaning: 1
+      img: {fileID: 1459658235844734, guid: 46baf54639fb6624dbd9da5e7f31c9c9, type: 2}
+    - meaning: 2
+      img: {fileID: 1847751517995704, guid: b2b6adc3f77d41c43a6b5532349ef127, type: 2}
+    - meaning: 0
+      img: {fileID: 1475821644733400, guid: 5daca4c01e32b0641aee871278286e56, type: 2}
+    - meaning: 1
+      img: {fileID: 1511552517404904, guid: 227b6ccf57f612e4b874071a85296caa, type: 2}
+    - meaning: 0
+      img: {fileID: 1486004725370864, guid: 3ad51b27b90e0674ca6464d0556d2f51, type: 2}
+    - meaning: 2
+      img: {fileID: 1848807406949400, guid: bdcad9f77b2fdbc4c836b284e50226af, type: 2}
+    - meaning: 1
+      img: {fileID: 1175533629387096, guid: 8a54ac849a9eae0469a63e59c1c4aa21, type: 2}
+    - meaning: 0
+      img: {fileID: 1515367609961586, guid: a1bfc8b10633aa6409c35aeb80f23c50, type: 2}
+  - name: CERVELLONI
+    symbols:
+    - meaning: 0
+      img: {fileID: 1252241392037656, guid: a7103e3f8088e074b87c9ca175e3d1e4, type: 2}
+    - meaning: 2
+      img: {fileID: 1543110348813248, guid: 1a5add10ca293804b953d9bf1ff833b4, type: 2}
+    - meaning: 0
+      img: {fileID: 1672742885086204, guid: cfa88f63ade9dc9409a9618ecde6e103, type: 2}
+    - meaning: 1
+      img: {fileID: 1228895383237020, guid: e6a43f26053254548bb1c4bb940f99bf, type: 2}
+    - meaning: 2
+      img: {fileID: 1337485362777210, guid: f4b196ab9be8baf4b92ef03475927cfa, type: 2}
+    - meaning: 1
+      img: {fileID: 1430570830692338, guid: 4b2ae0ed3dba51246b8f42ed8654db87, type: 2}
+    - meaning: 0
+      img: {fileID: 1822585065848094, guid: edafa537f1e52c049a5b5283748b5653, type: 2}
+    - meaning: 1
+      img: {fileID: 1166242052468278, guid: f32c479b0255f6c439b29615b2d6af86, type: 2}
+    - meaning: 2
+      img: {fileID: 1507499518413734, guid: 31a3116eaba7e0b448dcc88f770b769c, type: 2}
+    - meaning: 1
+      img: {fileID: 1761856483226676, guid: 38d74b2d6a9822a45b6ecd401d91b6bf, type: 2}
+    - meaning: 2
+      img: {fileID: 1526678232716192, guid: b9583cdf690ab9b4ebf1b751870cbeb0, type: 2}
+    - meaning: 0
+      img: {fileID: 1145565640921668, guid: dfa33d99cbb8a0e46b0a2b3d113cc13d, type: 2}
+  - name: RETTILIANI
+    symbols:
+    - meaning: 0
+      img: {fileID: 1405248974790752, guid: 593b62fe0a48a0d47927d3cfe1cf0820, type: 2}
+    - meaning: 1
+      img: {fileID: 1357195643103292, guid: e4691584c0ebb3240ab637e5554de6fe, type: 2}
+    - meaning: 2
+      img: {fileID: 1108645183400336, guid: 4017a6da9ae004542aa1f55ab98d3092, type: 2}
+    - meaning: 1
+      img: {fileID: 1614659698865714, guid: a143b260448504c47832e5ae123ed593, type: 2}
+    - meaning: 2
+      img: {fileID: 1175875678354990, guid: bacfc191307c16a40843a907210df964, type: 2}
+    - meaning: 0
+      img: {fileID: 1523347815372014, guid: 7d8c247a2b5be894ab487e86071583cc, type: 2}
+    - meaning: 2
+      img: {fileID: 1024455083262304, guid: e41dd74097d02ed43bc7d4347b3982cd, type: 2}
+    - meaning: 1
+      img: {fileID: 1445672786916662, guid: 5350142f12b407047a89402e9cb74d6e, type: 2}
+    - meaning: 0
+      img: {fileID: 1605088702999414, guid: a3aa1a613cd6df84297630cfc0d0dc10, type: 2}
+    - meaning: 1
+      img: {fileID: 1108677990137418, guid: 0bd40e1c6a63bf94986faeaf29e4a986, type: 2}
+    - meaning: 0
+      img: {fileID: 1551336721231604, guid: 0afff5e65f26b0a4ea83a599dd38b482, type: 2}
+    - meaning: 2
+      img: {fileID: 1534058229920496, guid: 9f4583897afa1194f85927bd8b17079b, type: 2}
