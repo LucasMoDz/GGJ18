@@ -12,11 +12,10 @@ public class MenuHandler : MonoBehaviour {
 	void Start () {
 		foreach (Transform child in transform) {
 			menus.Add(child.name, child.gameObject);
-			if(!child.name.Equals("MainMenu"))
-				child.gameObject.SetActive(false);
+			child.gameObject.SetActive(false);
 		}
 		currMenu = menus["MainMenu"];
-		//currMenu.SetActive(true);
+		currMenu.SetActive(true);
 
 	}
 
