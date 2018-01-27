@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
         // 3, 2, 1 feedback
         yield return StartFeedbackEvent.StartGame(); 
 
+        GamePhase();
+	}
+
+    private void GamePhase()
+    {
         // Randomize race
         RandomRace();
 
@@ -32,14 +37,16 @@ public class GameManager : MonoBehaviour
 
         // Get simbols
         Phrase phrase = PhraseEvents.GetPhrase();
-        
-        //Chiama metodo che avvia la generazione simboli
 
-        //Chiama metodo per attivare gli slider
+        // Generate symbols class
+        SymbolsEvents.ActivatePanel(phrase.symbols);
 
-        //Fa partire il movimento della navicella
+        // Activate slider
+        SliderEvents.SliderActivation(true);
+
+        // Move space ship
         SpaceshipEvents.moveToPosition(timeToReachEarth);
-	}
+    }
 	
     public void RandomRace()
     {
@@ -51,11 +58,9 @@ public class GameManager : MonoBehaviour
             case 0:
                 raceName = "rept";
                 break;
-
             case 1:
                 raceName = "robot";
                 break;
-
             case 2:
                 raceName = "bigHead";
                 break;
