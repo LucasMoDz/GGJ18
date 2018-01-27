@@ -95,7 +95,7 @@ public class PhraseGenerator : MonoBehaviour {
     {
 		Phrase ph = new Phrase();
 
-        Meaning meaning = GameManagerTopics.GetRandomicMeaning();
+        Meaning meaning = GameManagerTopics.GetLastMeaning();
 
 		do {
 			List<Symbol> symbols = new List<Symbol>();
