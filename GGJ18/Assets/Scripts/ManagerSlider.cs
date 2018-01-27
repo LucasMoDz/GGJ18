@@ -21,6 +21,9 @@ public class ManagerSlider : MonoBehaviour
     private float totalPositionRange;
     private float normalizedMaxRange, normalizedMinRange;
     private bool sliderIsActive;
+
+    // Edited from EventTrigger on handle slider
+    private bool isClicking;
     
     private void Awake()
     {
@@ -48,6 +51,11 @@ public class ManagerSlider : MonoBehaviour
         };
     }
 
+    public void SetIsClicking(bool _value)
+    {
+        isClicking = _value;
+    }
+
     private IEnumerator StartSliderMovementCO()
     {
         float step, seconds, startPosition, targetPosition;
@@ -60,8 +68,8 @@ public class ManagerSlider : MonoBehaviour
 
         while (sliderIsActive)
         {
-            step = 0;
-            seconds = Random.Range(.5f, 1.5f);
+            step = 0.0f;
+            seconds = Random.Range(.2f, .6f);
             startPosition = range.localPosition.y;
             targetPosition = Random.Range(minPositionY, maxPositionY);
             
@@ -69,7 +77,7 @@ public class ManagerSlider : MonoBehaviour
 
             while (step < 1.0f)
             {
-                step += Time.deltaTime / seconds;
+                step += Time.deltaTime / (seconds * 1.5f);
                 temp_position.y = Mathf.Lerp(startPosition, targetPosition, step);
                 range.localPosition = temp_position;
 
@@ -91,39 +99,17 @@ public class ManagerSlider : MonoBehaviour
         {
             if (slider.value < normalizedMaxRange && slider.value > normalizedMinRange)
             {
-                SignalReceived();
+                if (isClicking)
+                {
+                    SymbolsEvents.IncreaseAlpha();
+                }
             }
             else
             {
-                SignalNotReceived();
+                SymbolsEvents.DecreaseAlpha();
             }
 
             yield return null;
         }
-    }
-
-    private void SignalReceived()
-    {
-        Debug.Log("Signal received\n");
-    }
-
-    private void SignalNotReceived()
-    {
-        Debug.Log("Signal not received\n");
-    }
-
-    // To test
-    private void Update()
-    {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SliderEvents.SliderActivation(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-            SliderEvents.SliderActivation(false);
-        }
-#endif
     }
 }

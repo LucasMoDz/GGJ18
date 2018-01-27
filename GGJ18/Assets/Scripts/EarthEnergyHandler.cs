@@ -25,6 +25,7 @@ public class EarthEnergyHandler : MonoBehaviour {
 
                 //Far partire effetto distruzione della prima barriera
 
+                // Turn off shield earth
                 this.transform.GetChild(0).gameObject.SetActive(false);
                 break;
 
@@ -32,16 +33,18 @@ public class EarthEnergyHandler : MonoBehaviour {
 
                 //Far partire effetto distruzione della prima barriera
 
-
-                this.transform.GetChild(0).gameObject.SetActive(false);
+                // Turn off shield earth
+                this.transform.GetChild(1).gameObject.SetActive(false);
                 break;
 
             case 0:
                 //Far partire effetto distruzione della terra
 
-                this.transform.GetChild(0).gameObject.SetActive(false);
-
-                //TO DO Chiama metodo di Game Over nel GameManager
+                // Turn off earth
+                this.transform.gameObject.SetActive(false);
+                
+                // Call open game over panel request
+                GameOverEvent.OpenPanel();
 
                 break;
         }
