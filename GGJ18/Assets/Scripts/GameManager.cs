@@ -1,17 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using Package.CustomLibrary;
 
-public class GameManager : MonoBehaviour {
+public static class GameManagerTopics
+{
+    public static GetRaceEvent GetRandomicMeaning;
+    public delegate Meaning GetRaceEvent();
+}
 
+public class GameManager : MonoBehaviour
+{
     public float timeToReachEarth = 20f;
-    
-    // Use this for initialization
-    void Start () {
+    private Meaning lastMeaning;
 
-        //Chiama il metodo che estrae random una razza
+    private void Awake()
+    {
+        GameManagerTopics.GetRandomicMeaning += () => lastMeaning;
+    }
+    
+    private IEnumerator Start ()
+    {
+        // 3, 2, 1 feedback
+        yield return StartFeedbackEvent.StartGame(); 
+
+        // Randomize race
         RandomRace();
 
+        // Set lastMeaning variable (that will be called by PhraseGenerator
+        var meanings = UtilitiesGen.GetEnumValues<Meaning>();
+        lastMeaning = meanings[Random.Range(0, meanings.Length)];
+
+        // Get simbols
+        Phrase phrase = PhraseEvents.GetPhrase();
+        
         //Chiama metodo che avvia la generazione simboli
 
         //Chiama metodo per attivare gli slider
@@ -20,11 +41,6 @@ public class GameManager : MonoBehaviour {
         SpaceshipEvents.moveToPosition(timeToReachEarth);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void RandomRace()
     {
         int randomValue = Random.Range(0, 3);
@@ -44,10 +60,7 @@ public class GameManager : MonoBehaviour {
                 raceName = "bigHead";
                 break;
         }
-        Debug.Log(raceName);
+        
         SpaceshipEvents.setSprite(raceName);
-
     }
-
-
 }

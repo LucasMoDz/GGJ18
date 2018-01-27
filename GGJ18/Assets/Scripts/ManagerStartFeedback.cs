@@ -4,6 +4,12 @@ using UnityEngine.UI;
 using System.Collections;
 using Package.CustomLibrary;
 
+public static class StartFeedbackEvent
+{
+    public static FeedbackDelegate StartGame;
+    public delegate Coroutine FeedbackDelegate();
+}
+
 public class ManagerStartFeedback : MonoBehaviour
 {
     public Repo repo;
@@ -24,12 +30,9 @@ public class ManagerStartFeedback : MonoBehaviour
         public float fadeOutSeconds = .2f;
     }
 
-    public FeedbackDelegate StartFeedbackRequest;
-    public delegate Coroutine FeedbackDelegate();
-
     private void Awake()
     {
-        StartFeedbackRequest = ()=> StartCoroutine(StartFeedbackCO());
+        StartFeedbackEvent.StartGame = ()=> StartCoroutine(StartFeedbackCO());
     }
 
     private IEnumerator StartFeedbackCO()

@@ -13,7 +13,8 @@ public enum Meaning {
 public class Symbol {
 	
 	public Meaning meaning;
-	public Sprite img;
+	//public Sprite img;
+    public GameObject img;
 
 	public override string ToString() {
 		return string.Format ("[Symbol {0} {1}]", meaning, img.name);
@@ -70,6 +71,11 @@ public class Phrase {
 	}
 }
 
+public static class PhraseEvents
+{
+    public static Phrases GetPhrase;
+    public delegate Phrase Phrases();
+}
 
 public class PhraseGenerator : MonoBehaviour {
 
@@ -85,8 +91,12 @@ public class PhraseGenerator : MonoBehaviour {
 
 	Phrase lastPhrase;
 
-	public Phrase generatePhrase(Meaning meaning) {
+	public Phrase generatePhrase()
+    {
 		Phrase ph = new Phrase();
+
+        Meaning meaning = GameManagerTopics.GetRandomicMeaning();
+
 		do {
 			List<Symbol> symbols = new List<Symbol>();
 			int limit = 0;
@@ -142,29 +152,10 @@ public class PhraseGenerator : MonoBehaviour {
 		return duplicate;
 	}
 
-	void Start() {
-		reset();
-
-		for(int i=0; i<10; i++) {
-			var phrase = generatePhrase(Meaning.NEUTRAL);
-			Debug.Log(phrase);
-			phrase = replaceNeutral();
-			Debug.Log("REPLACED " + phrase);
-		}
-
-//		for(int i=0; i<10; i++) {
-//			Debug.Log(generatePhrase(Meaning.WAR));
-//		}
-//		reset();
-//		for(int i=0; i<10; i++) {
-//			Debug.Log(generatePhrase(Meaning.PEACE));
-//		}
-//		reset();
-//		for(int i=0; i<10; i++) {
-//			Debug.Log(generatePhrase(Meaning.NEUTRAL));
-//		}
-//		reset();
-	}
+    private void Awake()
+    {
+        PhraseEvents.GetPhrase = generatePhrase;
+    }
 
 	public Phrase replaceNeutral() {
 		int neutral = 0;
