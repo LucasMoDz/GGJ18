@@ -78,7 +78,8 @@ public class ManagerSlider : MonoBehaviour
             while (step < 1.0f)
             {
                 step += Time.deltaTime / (seconds * 1.5f);
-                temp_position.y = Mathf.Lerp(startPosition, targetPosition, step);
+				temp_position.y = Mathf.Lerp(startPosition, targetPosition, step);
+                //temp_position.x = 0f; //TODO fix x value
                 range.localPosition = temp_position;
 
                 normalizedMaxRange = (temp_position.y + maxPositionY + halfHeigth) / totalPositionRange;
