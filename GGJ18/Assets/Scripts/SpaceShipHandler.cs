@@ -25,7 +25,6 @@ public class SpaceShipHandler : MonoBehaviour {
     {
         SpaceshipEvents.moveToPosition += reachTime => { StartCoroutine(MoveToPosition(reachTime)); };
         SpaceshipEvents.setSprite += SetCurrentSprite;
-		Debug.Log(shipObjects[currentRace].transform.position);
 		startPos = shipObjects[currentRace].transform.position;
     }
 
