@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Package.CustomLibrary;
 
 
 public enum Meaning {
@@ -35,11 +36,12 @@ public class Phrase {
 	public List<Symbol> symbols;
 
 	public Meaning getGlobalMeaning() {
+
 		int neutral = 0;
 		int war = 0;
 		int peace = 0;
 		foreach(Symbol sym in symbols) {
-			if(sym.meaning.Equals(Meaning.NEUTRAL)) {
+			if(sym.meaning.Equals(Meaning.NEUTRAL)){
 				neutral++;
 			}
 			if(sym.meaning.Equals(Meaning.WAR)){
@@ -49,16 +51,16 @@ public class Phrase {
 				peace++;
 			}
 		}
-		if(neutral == 1) {
+		if( (neutral == 1 && war == 0 && peace == 0) || (neutral == 1 && war == 1 && peace == 1) || (neutral == 0 && war == 1 && peace == 1) ) {
 			return Meaning.NEUTRAL;
 		}
-		else if(war > peace) {
+		else if(war > peace && neutral == 0) {
 			return Meaning.WAR;
 		}
-		else if(war < peace) {
+		else if(war < peace && neutral == 0) {
 			return Meaning.PEACE;
 		}
-		return Meaning.NEUTRAL; 
+		return Meaning.NEUTRAL;
 	}
 
 	public override string ToString () {
@@ -74,7 +76,7 @@ public class Phrase {
 public static class PhraseEvents
 {
     public static Phrases GetPhrase;
-    public delegate Phrase Phrases();
+	public delegate Phrase Phrases(bool forcedNotNeutral = false);
 }
 
 public class PhraseGenerator : MonoBehaviour {
@@ -91,11 +93,12 @@ public class PhraseGenerator : MonoBehaviour {
 
 	Phrase lastPhrase;
 
-	public Phrase generatePhrase()
+	public Phrase generatePhrase(bool forcedNotNeutral = false)
     {
 		Phrase ph = new Phrase();
 
-        Meaning meaning = GameManagerTopics.GetLastMeaning();
+        Meaning meaning = GameManagerTopics.GetLastMeaning(); //This is the intention
+		//currentAlphabet = GameManagerTopics.GetLastRace();
 
 		do {
 			List<Symbol> symbols = new List<Symbol>();
@@ -109,7 +112,6 @@ public class PhraseGenerator : MonoBehaviour {
 			else {
 				limit = 3;
 			}
-
 			for(int i=0; i<limit; i++) {
 				Symbol candidate;
 				do {
@@ -119,6 +121,32 @@ public class PhraseGenerator : MonoBehaviour {
 			}
 			ph.symbols = symbols;
 		} while(!ph.getGlobalMeaning().Equals(meaning));
+
+
+		if(UnityEngine.Random.Range(0, 10) > 7) { //NEUTRAL PROBABILITY
+			do {
+				List<Symbol> symbols = new List<Symbol>();
+				int limit = 0;
+				if(tries < easyTries) {
+					limit = 1;
+				}
+				else if(tries < mediumTries) {
+					limit = 2;
+				}
+				else {
+					limit = 3;
+				}
+				for(int i=0; i<limit; i++) {
+					Symbol candidate;
+					do {
+						candidate = randomSymbol();
+					} while( (isDuplicate(symbols, candidate) || (hasNeutral(symbols) && candidate.meaning.Equals(Meaning.NEUTRAL))) || ( limit == 2 && candidate.meaning.Equals(Meaning.NEUTRAL)) );
+					symbols.Add(candidate);
+				}
+				ph.symbols = symbols;
+			} while(!ph.getGlobalMeaning().Equals(Meaning.NEUTRAL));
+		}
+
 		tries++;
 		lastPhrase = ph;
 		return ph;
@@ -155,9 +183,23 @@ public class PhraseGenerator : MonoBehaviour {
     private void Awake()
     {
         PhraseEvents.GetPhrase = generatePhrase;
+
+//		for(int i=0; i<10; i++) {
+//			var ph = generatePhrase(); //only war and peace intention
+//			if(!ph.getGlobalMeaning().Equals(Meaning.PEACE)) {
+//				Debug.Log("NOT REALLY INTENTION" + ph + " " + ph.getGlobalMeaning());
+//				changeNeutral(Meaning.PEACE);
+//				Debug.Log("CHANGED" + ph + " " + ph.getGlobalMeaning());
+//			}
+//			else {
+//				Debug.Log("OK" + ph + " " + ph.getGlobalMeaning());
+//
+//			}
+//		}
+
     }
 
-	public Phrase replaceNeutral() {
+	public Phrase changeNeutral(Meaning wantedIntention) {
 		int neutral = 0;
 		int war = 0;
 		int peace = 0;
@@ -173,43 +215,40 @@ public class PhraseGenerator : MonoBehaviour {
 			}
 		}
 		if(neutral == 0) {
-			return lastPhrase;
+			if(peace > war) {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while(!candidate.meaning.Equals(wantedIntention));
+
+				for(int i=0; i<lastPhrase.symbols.Count; i++) {
+					if(lastPhrase.symbols[i].meaning.Equals(Meaning.WAR)){
+						lastPhrase.symbols[i] = candidate;
+					}
+				}
+			}
+			else if(war > peace ) {
+				Symbol candidate;
+				do {
+					candidate = randomSymbol();
+				} while(!candidate.meaning.Equals(wantedIntention));
+
+				for(int i=0; i<lastPhrase.symbols.Count; i++) {
+					if(lastPhrase.symbols[i].meaning.Equals(Meaning.PEACE)){
+						lastPhrase.symbols[i] = candidate;
+					}
+				}
+			}
 		}
 		else if(neutral == 1) {
-			if(war > peace) {
-				Symbol candidate;
-				do {
-					candidate = randomSymbol();
-				} while(candidate.meaning.Equals(Meaning.NEUTRAL) && !candidate.meaning.Equals(Meaning.WAR));
-				Debug.Log(candidate);
-				for(int i=0; i<lastPhrase.symbols.Count; i++) {
-					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
-						lastPhrase.symbols[i] = candidate;
-					}
-				}
-			}
-			else if(war < peace) {
-				Symbol candidate;
-				do {
-					candidate = randomSymbol();
-				} while(candidate.meaning.Equals(Meaning.NEUTRAL) && !candidate.meaning.Equals(Meaning.PEACE));
+			Symbol candidate;
+			do {
+				candidate = randomSymbol();
+			} while(!candidate.meaning.Equals(wantedIntention));
 
-				for(int i=0; i<lastPhrase.symbols.Count; i++) {
-					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
-						lastPhrase.symbols[i] = candidate;
-					}
-				}
-			}
-			else {
-				Symbol candidate;
-				do {
-					candidate = randomSymbol();
-				} while(candidate.meaning.Equals(Meaning.NEUTRAL));
-
-				for(int i=0; i<lastPhrase.symbols.Count; i++) {
-					if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
-						lastPhrase.symbols[i] = candidate;
-					}
+			for(int i=0; i<lastPhrase.symbols.Count; i++) {
+				if(lastPhrase.symbols[i].meaning.Equals(Meaning.NEUTRAL)){
+					lastPhrase.symbols[i] = candidate;
 				}
 			}
 		}
