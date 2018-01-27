@@ -6,7 +6,7 @@ using System;
 
 public static class SpaceshipEvents {
     public static Action<float> moveToPosition;
-    public static Action<string> setSprite;
+    public static Action<int> setSprite;
 }
 
 public class SpaceShipHandler : MonoBehaviour {
@@ -34,19 +34,19 @@ public class SpaceShipHandler : MonoBehaviour {
         }
     }
 
-
-    public void SetCurrentSprite (string raceName)
+    
+    public void SetCurrentSprite (int raceName)
     {
         switch (raceName) {
-            case "rept":
+            case 0:
                 this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[0];
                 break;
 
-            case "robot":
+            case 1:
                 this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[1];
                 break;
 
-            case "bighead":
+            case 2:
                 this.gameObject.GetComponent<Image>().sprite = spaceshipSprite[2];
                 break;
         }
