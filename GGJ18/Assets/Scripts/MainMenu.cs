@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Image fadeImage;
+    public Text typeWriterText;
     
     public void Start()
     {
@@ -51,4 +52,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
+    public void TypeWriter()
+    {
+        if (typeWriterText == null)
+            return;
+
+        string text = typeWriterText.text;
+        typeWriterText.text = string.Empty;
+        UtilitiesUI.WriteTextInTypewriterStyle(typeWriterText, text, 0.06f);
+    }
 }

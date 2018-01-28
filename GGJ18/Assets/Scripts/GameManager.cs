@@ -79,44 +79,49 @@ public class GameManager : MonoBehaviour
 		if(meaning.Equals(Meaning.PEACE)) {
 			if(lastMeaning.Equals(Meaning.PEACE)) {
 				Debug.Log("RIGHT");
-				spaceShip.StopAllCoroutines();
+				spaceShip.StopCoroutineCustom();
+				//TODO love animation
+                spaceShip.Jump();
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-				StartCoroutine(delayedGamePhase(2f));
-		
+				StartCoroutine(delayedGamePhase(2.5f));
 			}
 			else {
 				Debug.Log("WRONG");
-				pointMgr.spaceShipWrong();
+			    spaceShip.StopCoroutineCustom();
+                pointMgr.spaceShipWrong();
 				spaceShip.attack();
-				StartCoroutine(delayedGamePhase(2f));
-
+				StartCoroutine(delayedGamePhase(3.2f));
+			    UtilitiesGen.CallMethod(1.8f, () => { spaceShip.Jump(); });
 			}
 		}
 	 	else if(meaning.Equals(Meaning.WAR)) {
 			if(lastMeaning.Equals(Meaning.WAR)) {
 				Debug.Log("RIGHT");
-				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-				spaceShip.StopAllCoroutines();
-				//TODO explosion effect
+			    spaceShip.StopCoroutineCustom();
+                pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
+			
+				//TODO explosion effect e pistola simbolo
 				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
 				StartCoroutine(delayedGamePhase(2f));
-
 			}
 			else {
 				Debug.Log("WRONG");
-				//TODO explosion effect
-				//TODO malus
+			    spaceShip.StopCoroutineCustom();
+
+                //TODO explosion effect and cuoricino spezzato
+                pointMgr.DecreasePoint();
 				pointMgr.spaceShipWrong();
 				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
-				spaceShip.StopAllCoroutines();
+				
 				StartCoroutine(delayedGamePhase(2f));
 			}
 		}
 		else if(meaning.Equals(Meaning.NEUTRAL)) {
 			if(lastMeaning.Equals(Meaning.NEUTRAL)) {
-				Debug.Log("RIGHT");
+			    spaceShip.StopCoroutineCustom();
+                Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-				spaceShip.StopAllCoroutines();
+		
 				//TODO neutral effect?
 				StartCoroutine(delayedGamePhase(2f));
 

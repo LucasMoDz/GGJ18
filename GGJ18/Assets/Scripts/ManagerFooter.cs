@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Package.EventManager;
+using UnityEngine;
 
 public class ManagerFooter : MonoBehaviour
 {
@@ -7,15 +8,18 @@ public class ManagerFooter : MonoBehaviour
 	public void sendPeace() {
 		gameManager.symbols.spawnParticles(Meaning.PEACE);
 		gameManager.handleAnswer(Meaning.PEACE);
+        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.AcousticButton);
 	}
 
 	public void sendWar() {
 		gameManager.symbols.spawnParticles(Meaning.WAR);
 		gameManager.handleAnswer(Meaning.WAR);
-	}
-
-	public void sendNeutral() {
-		gameManager.symbols.spawnParticles(Meaning.NEUTRAL);
-		gameManager.handleAnswer(Meaning.NEUTRAL);
-	}
+	    EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.AcousticButton);
+    }
+    
+    public void sendNeutral() {
+        gameManager.symbols.spawnParticles(Meaning.NEUTRAL);
+            gameManager.handleAnswer(Meaning.NEUTRAL);
+        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.AcousticButton);
+    }
 }
