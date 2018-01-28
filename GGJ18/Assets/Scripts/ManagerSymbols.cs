@@ -47,6 +47,10 @@ public class ManagerSymbols : MonoBehaviour
 
         SymbolsEvents.IncreaseAlpha += () => { ManageAlpha(1); };
         SymbolsEvents.DecreaseAlpha += () => { ManageAlpha(-1); };
+
+		peaceParticle.Stop();
+		warParticle.Stop();
+		neutralParticle.Stop();
     }
 
     private void ManageAlpha(int _multiplier)

@@ -28,7 +28,6 @@ public class EarthEnergyHandler : MonoBehaviour {
 			}
 		}
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
-
     }
 
 	public void damage() {
