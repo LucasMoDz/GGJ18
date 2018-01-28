@@ -23,9 +23,13 @@ public class GameManager : MonoBehaviour
 	public PointMgr pointMgr;
 
 	public SpaceShipHandler spaceShip;
+	public ManagerSymbols symbols;
 
     private void Awake()
     {
+		GameManagerTopics.GetLastMeaning = null;
+		GameManagerTopics.GetLastRace = null;
+
         GameManagerTopics.GetLastMeaning += ()=> lastMeaning;
         GameManagerTopics.GetLastRace += ()=> lastRace;
 
@@ -48,7 +52,8 @@ public class GameManager : MonoBehaviour
     {
         // Randomize race
         lastRace = Random.Range(0, 3);
-        SpaceshipEvents.setSprite(lastRace);
+
+		spaceShip.SetCurrentSprite(lastRace);
 
         // Set lastMeaning variable (that will be called by PhraseGenerator)
         var meanings = UtilitiesGen.GetEnumValues<Meaning>();
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
         SliderEvents.SliderActivation(true);
 
         // Move space ship
-		SpaceshipEvents.moveToPosition(timeToReachEarth);
+		StartCoroutine(spaceShip.MoveToPosition(timeToReachEarth));
 
 		spaceShip.reset();
 		spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();

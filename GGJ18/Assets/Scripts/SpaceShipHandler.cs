@@ -26,13 +26,13 @@ public class SpaceShipHandler : MonoBehaviour {
         SpaceshipEvents.moveToPosition += reachTime => { StartCoroutine(MoveToPosition(reachTime)); };
         SpaceshipEvents.setSprite += SetCurrentSprite;
 		
-
-        shipObjects = new GameObject[3];
-
-        for (int i = 0; i < this.transform.childCount; i++)
-        {
-            shipObjects[i] = this.transform.GetChild(i).gameObject;
-        }
+//
+//        shipObjects = new GameObject[3];
+//
+//        for (int i = 0; i < this.transform.childCount; i++)
+//        {
+//            shipObjects[i] = this.transform.GetChild(i).gameObject;
+//        }
 
         startPos = shipObjects[currentRace].transform.position;
     }
@@ -67,6 +67,7 @@ public class SpaceShipHandler : MonoBehaviour {
 		currentRace = raceName;
 		for(int i=0; i<shipObjects.Length; i++)
         {
+			shipObjects[i] = transform.GetChild(i).gameObject;
 			shipObjects[i].SetActive(false);
 		}
 		shipObjects[currentRace].SetActive(true);
