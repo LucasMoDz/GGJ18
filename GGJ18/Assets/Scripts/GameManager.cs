@@ -80,10 +80,9 @@ public class GameManager : MonoBehaviour
 			if(lastMeaning.Equals(Meaning.PEACE)) {
 				Debug.Log("RIGHT");
 				spaceShip.StopAllCoroutines();
-				//TODO love animation
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
 				StartCoroutine(delayedGamePhase(2f));
-
+		
 			}
 			else {
 				Debug.Log("WRONG");

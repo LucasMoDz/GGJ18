@@ -12,6 +12,11 @@ public static class SymbolsEvents
 
 public class ManagerSymbols : MonoBehaviour
 {
+
+	public ParticleSystem peaceParticle;
+	public ParticleSystem warParticle;
+	public ParticleSystem neutralParticle;
+
     public float step = 0.035f;
 
     private Transform myTransform;
@@ -42,6 +47,10 @@ public class ManagerSymbols : MonoBehaviour
 
         SymbolsEvents.IncreaseAlpha += () => { ManageAlpha(1); };
         SymbolsEvents.DecreaseAlpha += () => { ManageAlpha(-1); };
+
+		peaceParticle.Stop();
+		warParticle.Stop();
+		neutralParticle.Stop();
     }
 
     private void ManageAlpha(int _multiplier)
@@ -66,4 +75,16 @@ public class ManagerSymbols : MonoBehaviour
             canvasGroup.alpha += finalValue;
         }
     }
+
+	public void spawnParticles(Meaning meaning) {
+		if (meaning.Equals(Meaning.WAR)) {
+			warParticle.Play();
+		}
+		else if (meaning.Equals(Meaning.PEACE)) {
+			peaceParticle.Play();
+		}
+		else if (meaning.Equals(Meaning.NEUTRAL)) {
+			neutralParticle.Play();
+		}
+	}
 }
