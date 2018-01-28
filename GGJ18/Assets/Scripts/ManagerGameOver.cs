@@ -17,6 +17,7 @@ public class ManagerGameOver : MonoBehaviour
 {
     public Button retry, exit;
     public Text lastScore, record;
+    public GameObject fadeImage;
 
     private CanvasGroup canvasGroup;
 
@@ -24,7 +25,7 @@ public class ManagerGameOver : MonoBehaviour
     {
         canvasGroup = this.GetComponent<CanvasGroup>();
 
-        retry.onClick.AddListener(() => { UnityEngine.SceneManagement.SceneManager.LoadScene(0); });//Todo: mercury fai il tuo fade! })
+        retry.onClick.AddListener(() => { fadeImage.GetComponent<MainMenu>().LoadLevel(0); }); //Todo: mercury fai il tuo fade!: FATTO! })
 
         if (canvasGroup == null)
         {
