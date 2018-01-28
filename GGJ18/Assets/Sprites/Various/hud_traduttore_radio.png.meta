@@ -1,9 +1,35 @@
 fileFormatVersion: 2
 guid: 11b64678ab8291641b846031148183c5
-timeCreated: 1517131108
+timeCreated: 1517133352
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: hud_traduttore_radio_0
+    21300002: hud_traduttore_radio_1
+    21300004: hud_traduttore_radio_2
+    21300006: hud_traduttore_radio_3
+    21300008: hud_traduttore_radio_4
+    21300010: hud_traduttore_radio_5
+    21300012: hud_traduttore_radio_6
+    21300014: hud_traduttore_radio_7
+    21300016: hud_traduttore_radio_8
+    21300018: hud_traduttore_radio_9
+    21300020: hud_traduttore_radio_10
+    21300022: hud_traduttore_radio_11
+    21300024: hud_traduttore_radio_12
+    21300026: hud_traduttore_radio_13
+    21300028: hud_traduttore_radio_14
+    21300030: hud_traduttore_radio_15
+    21300032: hud_traduttore_radio_16
+    21300034: hud_traduttore_radio_17
+    21300036: hud_traduttore_radio_18
+    21300038: hud_traduttore_radio_19
+    21300040: hud_traduttore_radio_20
+    21300042: hud_traduttore_radio_21
+    21300044: hud_traduttore_radio_22
+    21300046: hud_traduttore_radio_23
+    21300048: hud_traduttore_radio_24
+    21300050: hud_traduttore_radio_25
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +66,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +165,371 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hud_traduttore_radio_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_1
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_2
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_3
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_4
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_5
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 460
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_7
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_8
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_9
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_10
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_11
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 345
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_13
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_14
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_15
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_16
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_17
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 230
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_19
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_20
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_21
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_22
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_23
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 115
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_traduttore_radio_25
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 0
+        width: 438
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
