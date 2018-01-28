@@ -42,6 +42,7 @@ public class ManagerStartFeedback : MonoBehaviour
         for (int i = 0; i < repo.sprites.Length; i++)
         {
             repo.image.sprite = repo.sprites[i];
+            UtilitiesUI.ObjectActivation(repo.image.GetComponent<CanvasGroup>());
             yield return UtilitiesUI.ObjectScalingIn(repo.image.gameObject, fields.fadeInSeconds, fields.waitTime, fields.fadeOutSeconds);
         }
 

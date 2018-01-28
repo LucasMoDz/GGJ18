@@ -33,21 +33,27 @@ public class ManagerGameOver : MonoBehaviour
         }
         else
         {
-            GameOverEvent.OpenPanel += () => { UtilitiesUI.ObjectActivation(canvasGroup, ConstantValues.FADEINTIME); };
-            PointMgr pointClass = FindObjectOfType<PointMgr>();
-
-            if (pointClass.record < pointClass.currentPoints)
+            GameOverEvent.OpenPanel += () =>
             {
-                pointClass.record = pointClass.currentPoints;
-                UtilitiesGen.WritingToFile(FileName.PlayerData, pointClass.record);
-            }
+                UtilitiesGen.CallMethod(2, ()=> { UtilitiesUI.ObjectActivation(canvasGroup, ConstantValues.FADEINTIME); });
+                PointMgr pointClass = FindObjectOfType<PointMgr>();
 
-            lastScore.text = pointClass.currentPoints.ToString();
-            record.text = pointClass.record.ToString();
+                lastScore.text = pointClass.currentPoints.ToString();
 
-            SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
-            spaceShip.reset();
-            spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
+                if (pointClass.record < pointClass.currentPoints)
+                {
+                    pointClass.record = pointClass.currentPoints;
+                    UtilitiesGen.WritingToFile(FileName.PlayerData, pointClass.record);
+                }
+
+
+                record.text = pointClass.record.ToString();
+
+                SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
+                spaceShip.reset();
+                spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
+            };
+            
         }
     }
 }

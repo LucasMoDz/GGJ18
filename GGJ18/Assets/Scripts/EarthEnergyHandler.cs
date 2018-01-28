@@ -34,6 +34,10 @@ public class EarthEnergyHandler : MonoBehaviour {
 		earthEnergyValue -= 1;
 		CheckEnergy();
 		GetComponent<CircleCollider2D>().radius *= .9f;
+
+	    if (!this.gameObject.activeSelf)
+	        return;
+
 		StartCoroutine(explosion());
 	}
 
@@ -60,7 +64,48 @@ public class EarthEnergyHandler : MonoBehaviour {
 		damageParticle.Stop();
 	}
 
-	IEnumerator fill(float time) {
+
+    public bool isCollided;
+
+    IEnumerator fill(float time)
+    {
+        /*
+        yield return new WaitForSeconds(0.1f);
+		float currTime = 0f;
+		while(currTime < time) {
+			//Debug.Log(currTime/time);
+			currTime += Time.deltaTime;
+			laser.fillAmount = currTime/time;
+			yield return null;
+		}
+		laser.fillAmount = 1;
+
+        yield return new WaitForSeconds(0.3f);
+
+	    float step = 0;
+
+	    while (step < 1)
+	    {
+	        step += Time.deltaTime / 0.2f;
+	        laser.fillAmount = Mathf.Lerp(1, 0, step);
+	        yield return null;
+	    }
+        */
+
+        float test = laser.rectTransform.sizeDelta.y;
+        laser.color = new Color(1, 1, 1, 1);
+        while (!isCollided)
+        {
+            test += Time.deltaTime * 2000;
+            laser.rectTransform.sizeDelta = new Vector2(laser.rectTransform.sizeDelta.x, test);
+            yield return null;
+        }
+
+        laser.color = new Color(1, 1, 1, 0);
+    }
+
+    /*
+    IEnumerator fill(float time) {
 		yield return new WaitForSeconds(.5f);
 		float currTime = 0f;
 		while(currTime < time) {
@@ -71,7 +116,7 @@ public class EarthEnergyHandler : MonoBehaviour {
 		}
 		laser.fillAmount = 1;
 	}
-
+    */
 	void Update() {
 		if(earthEnergyValue == 3) {
 			GetComponent<Image>().color = Color.cyan;
@@ -112,6 +157,7 @@ public class EarthEnergyHandler : MonoBehaviour {
                 //Far partire effetto distruzione della terra
 
                 // Turn off earth
+
                 this.transform.gameObject.SetActive(false);
                 
                 // Call open game over panel request

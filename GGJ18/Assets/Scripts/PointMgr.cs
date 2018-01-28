@@ -49,7 +49,7 @@ public class PointMgr : MonoBehaviour {
     public void DecreasePoint()
     {
         Color defaultcolor = gainedPoint.color;
-        gainedPoint.text = "-500";
+        gainedPoint.text = "-50";
         gainedPoint.color = Color.red;
         gainedPoint.gameObject.SetActive(true);
         Color mycolod = pointsTxt.color;
@@ -62,7 +62,7 @@ public class PointMgr : MonoBehaviour {
             gainedPoint.gameObject.SetActive(false);
             pointsTxt.color = mycolod;
 
-            currentPoints -= 500;
+            currentPoints -= 50;
 
             if (currentPoints < 0)
                 currentPoints = 0;

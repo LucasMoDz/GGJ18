@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spaceship
   - Lasebeam
+  - Earth
   layers:
   - Default
   - TransparentFX
