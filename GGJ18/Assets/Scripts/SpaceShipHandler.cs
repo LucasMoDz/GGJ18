@@ -48,6 +48,7 @@ public class SpaceShipHandler : MonoBehaviour {
     
     public IEnumerator MoveToPosition(float timeToReachEarth)
     {
+        shipObjects[currentRace].GetComponent<CircleCollider2D>().enabled = true;
         exitToCoro = false;
 		shipObjects[currentRace].transform.position = startPos;
 		var currentPos = shipObjects[currentRace].transform.position;
@@ -64,6 +65,7 @@ public class SpaceShipHandler : MonoBehaviour {
 
     public void Jump()
     {
+        shipObjects[currentRace].GetComponent<CircleCollider2D>().enabled = false;
         shipObjects[currentRace].transform.DOJump(shipObjects[currentRace].transform.position + new Vector3(-600f, -100, 0), 40, 1, 2.5f);
     }
 

@@ -25,7 +25,8 @@ public class ManagerGameOver : MonoBehaviour
     {
         canvasGroup = this.GetComponent<CanvasGroup>();
 
-        retry.onClick.AddListener(() => { fadeImage.GetComponent<MainMenu>().LoadLevel(0); }); //Todo: mercury fai il tuo fade!: FATTO! })
+        retry.onClick.AddListener(() => { fadeImage.GetComponent<MainMenu>().LoadLevel(1); }); 
+        exit.onClick.AddListener(()=> { fadeImage.GetComponent<MainMenu>().LoadLevel(0); });
 
         if (canvasGroup == null)
         {

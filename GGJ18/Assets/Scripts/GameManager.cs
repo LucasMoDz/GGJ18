@@ -71,16 +71,16 @@ public class GameManager : MonoBehaviour
 		spaceShip.reset();
 		spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
     }
+    public ParticleSystem cuori;
+	public void handleAnswer(Meaning nostro) {
 
-	public void handleAnswer(Meaning meaning) {
+		Debug.Log(nostro);
 
-		Debug.Log(meaning);
-
-		if(meaning.Equals(Meaning.PEACE)) {
+		if(nostro.Equals(Meaning.PEACE)) {
 			if(lastMeaning.Equals(Meaning.PEACE)) {
 				Debug.Log("RIGHT");
 				spaceShip.StopCoroutineCustom();
-				//TODO love animation
+			    symbols.spawnParticles(Meaning.PEACE);
                 spaceShip.Jump();
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
 				StartCoroutine(delayedGamePhase(2.5f));
@@ -91,16 +91,16 @@ public class GameManager : MonoBehaviour
                 pointMgr.spaceShipWrong();
 				spaceShip.attack();
 				StartCoroutine(delayedGamePhase(3.2f));
+                symbols.spawnParticles(Meaning.WAR);
 			    UtilitiesGen.CallMethod(1.8f, () => { spaceShip.Jump(); });
 			}
 		}
-	 	else if(meaning.Equals(Meaning.WAR)) {
+	 	else if(nostro.Equals(Meaning.WAR)) {
 			if(lastMeaning.Equals(Meaning.WAR)) {
 				Debug.Log("RIGHT");
 			    spaceShip.StopCoroutineCustom();
                 pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-			
-				//TODO explosion effect e pistola simbolo
+                symbols.spawnParticles(Meaning.WAR);
 				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
 				StartCoroutine(delayedGamePhase(2f));
 			}
@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 				Debug.Log("WRONG");
 			    spaceShip.StopCoroutineCustom();
 
+                cuori.Play();
                 //TODO explosion effect and cuoricino spezzato
                 pointMgr.DecreasePoint();
 				pointMgr.spaceShipWrong();
@@ -116,21 +117,20 @@ public class GameManager : MonoBehaviour
 				StartCoroutine(delayedGamePhase(2f));
 			}
 		}
-		else if(meaning.Equals(Meaning.NEUTRAL)) {
+		else if(nostro.Equals(Meaning.NEUTRAL)) {
 			if(lastMeaning.Equals(Meaning.NEUTRAL)) {
 			    spaceShip.StopCoroutineCustom();
                 Debug.Log("RIGHT");
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
-		
-				//TODO neutral effect?
+		        symbols.spawnParticles(Meaning.NEUTRAL);
 				StartCoroutine(delayedGamePhase(2f));
-
 			}
 			else {
 				if(lastMeaning.Equals(Meaning.WAR) || lastMeaning.Equals(Meaning.PEACE)) {
 					Debug.Log("NEW PHRASE");
 					SymbolsEvents.ActivatePanel(PhraseEvents.GetPhrase(true).symbols);
-				}
+				    symbols.spawnParticles(Meaning.NEUTRAL);
+                }
 			}
 		}
 	}
