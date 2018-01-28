@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Package.EventManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +48,11 @@ public class EarthEnergyHandler : MonoBehaviour {
 	}
 
 	public void attack() {
-		StartCoroutine(fill(.4f));
+        
+	        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Laser03);
+
+
+        StartCoroutine(fill(.4f));
 		StartCoroutine(explodeShip(.5f));
 	}
 

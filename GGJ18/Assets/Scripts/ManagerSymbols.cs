@@ -2,6 +2,7 @@
 using UnityEngine;
 using Package.CustomLibrary;
 using System.Collections.Generic;
+using Package.EventManager;
 
 public static class SymbolsEvents
 {
@@ -32,6 +33,7 @@ public class ManagerSymbols : MonoBehaviour
 
         SymbolsEvents.ActivatePanel += _list =>
         {
+            //EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.RadioNoise);
             UtilitiesUI.ObjectActivation(this.GetComponent<CanvasGroup>(), ConstantValues.FADEINTIME);
 
             for (int i = 0; i < this.transform.childCount; i++)

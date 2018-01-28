@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Package.CustomLibrary;
+using Package.EventManager;
 using UnityEngine.UI;
 
 public enum FileName
@@ -36,6 +37,8 @@ public class ManagerGameOver : MonoBehaviour
         {
             GameOverEvent.OpenPanel += () =>
             {
+                EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Explosion01);
+
                 UtilitiesGen.CallMethod(2, ()=> { UtilitiesUI.ObjectActivation(canvasGroup, ConstantValues.FADEINTIME); });
                 PointMgr pointClass = FindObjectOfType<PointMgr>();
 
@@ -47,12 +50,11 @@ public class ManagerGameOver : MonoBehaviour
                     UtilitiesGen.WritingToFile(FileName.PlayerData, pointClass.record);
                 }
 
-
                 record.text = pointClass.record.ToString();
 
-                SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
-                spaceShip.reset();
-                spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
+                //SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
+                //spaceShip.reset();
+                //spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
             };
             
         }

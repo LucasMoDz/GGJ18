@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 using Package.CustomLibrary;
+using Package.EventManager;
 
 public static class SpaceshipEvents {
     public static Action<float> moveToPosition;
@@ -24,18 +25,14 @@ public class SpaceShipHandler : MonoBehaviour {
 
     private bool exitToCoro;
 
+    private ManagerInteraction interaction;
+
     public void Awake()
     {
         SpaceshipEvents.moveToPosition += reachTime => { StartCoroutine(MoveToPosition(reachTime)); };
         SpaceshipEvents.setSprite += SetCurrentSprite;
-		
-//
-//        shipObjects = new GameObject[3];
-//
-//        for (int i = 0; i < this.transform.childCount; i++)
-//        {
-//            shipObjects[i] = this.transform.GetChild(i).gameObject;
-//        }
+
+        interaction = FindObjectOfType<ManagerInteraction>();
 
         startPos = shipObjects[currentRace].transform.position;
     }
@@ -56,11 +53,22 @@ public class SpaceShipHandler : MonoBehaviour {
 		remainingTimePerc = 0f;
 		while (currTime < timeToReachEarth && !exitToCoro)
 		{
-			currTime += Time.deltaTime;
+		    if (currTime > 14 || currTime < 3)
+		    {
+		        interaction.Block();
+		    }
+		    else
+		    {
+                interaction.Allow();
+		    }
+
+            currTime += Time.deltaTime;
 			remainingTimePerc += Time.deltaTime / timeToReachEarth;
 			shipObjects[currentRace].transform.position = Vector3.Lerp(startPos, earthObject.transform.position - new Vector3(0f, 20f, 0f), currTime/timeToReachEarth);
             yield return null;
         }
+
+        interaction.Block();
     }
 
     public void Jump()
@@ -69,8 +77,11 @@ public class SpaceShipHandler : MonoBehaviour {
         shipObjects[currentRace].transform.DOJump(shipObjects[currentRace].transform.position + new Vector3(-600f, -100, 0), 40, 1, 2.5f);
     }
 
-	public void attack() {
-		StopAllCoroutines();
+	public void attack()
+    {
+        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Laser03);
+        
+        StopAllCoroutines();
 		shipObjects[currentRace].GetComponent<SpaceShip>().attack();
 		earthObject.GetComponent<EarthEnergyHandler>().damage();
 	}

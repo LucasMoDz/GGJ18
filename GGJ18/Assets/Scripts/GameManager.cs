@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Package.CustomLibrary;
+using Package.EventManager;
 
 public static class GameManagerTopics
 {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
 	public SpaceShipHandler spaceShip;
 	public ManagerSymbols symbols;
-
+    
     private void Awake()
     {
 		GameManagerTopics.GetLastMeaning = null;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
 
 		pointMgr = GetComponent<PointMgr>();
     }
-    
+
     private IEnumerator Start ()
     {
         // 3, 2, 1 feedback
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour
 
 		spaceShip.SetCurrentSprite(lastRace);
 
+        
+
         // Set lastMeaning variable (that will be called by PhraseGenerator)
         var meanings = UtilitiesGen.GetEnumValues<Meaning>();
         lastMeaning = meanings[Random.Range(0, meanings.Length-1)]; //only war and peace intention
@@ -70,7 +73,22 @@ public class GameManager : MonoBehaviour
 
 		spaceShip.reset();
 		spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
+
+        // AUDIO
+        if (lastRace == 0)
+        {
+            EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Cervelloni02);
+        }
+        else if (lastRace == 1)
+        {
+            EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.RobotTalking);
+        }
+        else
+        {
+            EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Reptilian);
+        }
     }
+
     public ParticleSystem cuori;
 	public void handleAnswer(Meaning nostro) {
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Package.EventManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,10 +36,8 @@ public class SpaceShip : MonoBehaviour {
 	public void explode() {
 		Debug.Log("Explode ship");
         laser.color = new Color(laser.color.r, laser.color.g, 0);
-		//if(explosionParticles != null)
 		explosionParticles.Play();
-		//GetComponent<Image>().enabled = false;
-
+        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Explosion02);
 	    var a = FindObjectsOfType<SpaceShip>();
 
 	    for (int i = 0; i < a.Length; i++)
