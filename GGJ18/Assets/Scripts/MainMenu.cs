@@ -11,6 +11,9 @@ public class MainMenu : MonoBehaviour
     
     public void Start()
     {
+        Application.targetFrameRate = 60;
+        Input.multiTouchEnabled = false;
+
         StartCoroutine(fadeIn());
     }
 
