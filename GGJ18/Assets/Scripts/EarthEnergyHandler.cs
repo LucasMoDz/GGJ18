@@ -12,6 +12,12 @@ public class EarthEnergyHandler : MonoBehaviour {
 
 	public GameManager manager;
 
+	public ParticleSystem damageParticle;
+
+	void Start() {
+		damageParticle.Stop();
+	}
+
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam") {
 			//Debug.Log("ENTER");
@@ -22,25 +28,37 @@ public class EarthEnergyHandler : MonoBehaviour {
 			}
 		}
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
+
     }
 
 	public void damage() {
 		earthEnergyValue -= 1;
 		CheckEnergy();
 		GetComponent<CircleCollider2D>().radius *= .9f;
+		StartCoroutine(explosion());
+	}
+
+	IEnumerator explosion() {
+		yield return new WaitForSeconds(.9f);
+		damageParticle.Play();
 	}
 
 	public void attack() {
-		
-		StartCoroutine(fill(.8f));
+		StartCoroutine(fill(.4f));
+		StartCoroutine(explodeShip(.5f));
+	}
+
+	IEnumerator explodeShip(float time) {
+		yield return new WaitForSeconds(time);
+		manager.spaceShip.shipObjects[0].GetComponent<SpaceShip>().explode();
 	}
 
 	public void reset()
     {
         if (laser == null)
             return;
-
 		laser.fillAmount = 0;
+		damageParticle.Stop();
 	}
 
 	IEnumerator fill(float time) {
