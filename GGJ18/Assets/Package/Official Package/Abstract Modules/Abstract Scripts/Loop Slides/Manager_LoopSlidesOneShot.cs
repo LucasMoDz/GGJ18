@@ -63,7 +63,7 @@ public class Manager_LoopSlidesOneShot : ManagerBaseClass
 
         for (int i = 0; i < spritesToLoop.Length; i++)
         {
-            EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Card);
+            //EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Card);
             repo.image.sprite = spritesToLoop[i];
 
             if (loopType.Equals(LoopTypeEnum.Click))
