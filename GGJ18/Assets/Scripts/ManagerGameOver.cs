@@ -3,6 +3,11 @@ using UnityEngine;
 using Package.CustomLibrary;
 using UnityEngine.UI;
 
+public enum FileName
+{
+    PlayerData = 0
+}
+
 public static class GameOverEvent
 {
     public static Action OpenPanel;
@@ -26,8 +31,16 @@ public class ManagerGameOver : MonoBehaviour
         else
         {
             GameOverEvent.OpenPanel += () => { UtilitiesUI.ObjectActivation(canvasGroup, ConstantValues.FADEINTIME); };
-        }
+            PointMgr pointClass = FindObjectOfType<PointMgr>();
 
-        
+            if (pointClass.record < pointClass.currentPoints)
+            {
+                pointClass.record = pointClass.currentPoints;
+                UtilitiesGen.WritingToFile(FileName.PlayerData, pointClass.record);
+            }
+
+            lastScore.text = pointClass.currentPoints.ToString();
+            record.text = pointClass.record.ToString();
+        }
     }
 }

@@ -12,7 +12,7 @@ public static class SymbolsEvents
 
 public class ManagerSymbols : MonoBehaviour
 {
-    public float step = 0.01f;
+    public float step = 0.035f;
 
     private Transform myTransform;
 
@@ -41,10 +41,10 @@ public class ManagerSymbols : MonoBehaviour
             return;
 
         float finalValue = step * _multiplier;
-
+        
         if (_multiplier.Equals(1))
         {
-            finalValue *= 1.8f;
+            finalValue *= 0.9f;
         }
 
         for (int i = 0; i < myTransform.childCount; i++)

@@ -21,9 +21,6 @@ public class ManagerSlider : MonoBehaviour
     private float totalPositionRange;
     private float normalizedMaxRange, normalizedMinRange;
     private bool sliderIsActive;
-
-    // Edited from EventTrigger on handle slider
-    private bool isClicking;
     
     private void Awake()
     {
@@ -51,11 +48,6 @@ public class ManagerSlider : MonoBehaviour
         };
     }
 
-    public void SetIsClicking(bool _value)
-    {
-        isClicking = _value;
-    }
-
     private IEnumerator StartSliderMovementCO()
     {
         float step, seconds, startPosition, targetPosition;
@@ -69,7 +61,7 @@ public class ManagerSlider : MonoBehaviour
         while (sliderIsActive)
         {
             step = 0.0f;
-            seconds = Random.Range(.2f, .6f);
+            seconds = Random.Range(.2f, .5f);
             startPosition = range.localPosition.y;
             targetPosition = Random.Range(minPositionY, maxPositionY);
             
@@ -77,9 +69,8 @@ public class ManagerSlider : MonoBehaviour
 
             while (step < 1.0f)
             {
-                step += Time.deltaTime / (seconds * 1.5f);
+                step += Time.deltaTime / (seconds * 1.2f);
 				temp_position.y = Mathf.Lerp(startPosition, targetPosition, step);
-                //temp_position.x = 0f; //TODO fix x value
                 range.localPosition = temp_position;
 
                 normalizedMaxRange = (temp_position.y + maxPositionY + halfHeigth) / totalPositionRange;
@@ -100,10 +91,7 @@ public class ManagerSlider : MonoBehaviour
         {
             if (slider.value < normalizedMaxRange && slider.value > normalizedMinRange)
             {
-                if (isClicking)
-                {
-                    SymbolsEvents.IncreaseAlpha();
-                }
+                SymbolsEvents.IncreaseAlpha();
             }
             else
             {

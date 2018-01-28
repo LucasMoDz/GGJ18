@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Package.CustomLibrary;
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -6,7 +7,14 @@ public class PointMgr : MonoBehaviour {
 
 	int spaceShipMultiplier;
 	public int currentPoints;
+    public int record;
 	public Text pointsTxt;
+
+    private void Awake()
+    {
+        int recordSaved = UtilitiesGen.ReadingByFile<int>(FileName.PlayerData);
+        record = recordSaved;
+    }
 
 	public void init() {
 		spaceShipMultiplier = 1;
