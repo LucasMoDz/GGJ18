@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 		GamePhase();
 	}
 
-    private void GamePhase()
+    public void GamePhase()
     {
         // Randomize race
         lastRace = Random.Range(0, 3);
