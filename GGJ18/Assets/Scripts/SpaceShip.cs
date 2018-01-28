@@ -31,7 +31,7 @@ public class SpaceShip : MonoBehaviour {
 	}
 
 	IEnumerator fill(float time) {
-		yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.1f);
 		float currTime = 0f;
 		while(currTime < time) {
 			//Debug.Log(currTime/time);
@@ -40,8 +40,16 @@ public class SpaceShip : MonoBehaviour {
 			yield return null;
 		}
 		laser.fillAmount = 1;
+        yield return new WaitForSeconds(0.3f);
 
+	    float step = 0;
 
+	    while (step < 1)
+	    {
+	        step += Time.deltaTime / 0.2f;
+	        laser.fillAmount = Mathf.Lerp(1, 0, step);
+	        yield return null;
+	    }
 	}
 
 }

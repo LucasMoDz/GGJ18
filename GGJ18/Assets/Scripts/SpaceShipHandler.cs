@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using DG.Tweening;
+using Package.CustomLibrary;
 
 public static class SpaceshipEvents {
     public static Action<float> moveToPosition;
@@ -20,6 +22,7 @@ public class SpaceShipHandler : MonoBehaviour {
 
 	Vector3 startPos;
 
+    private bool exitToCoro;
 
     public void Awake()
     {
@@ -37,19 +40,31 @@ public class SpaceShipHandler : MonoBehaviour {
         startPos = shipObjects[currentRace].transform.position;
     }
 
+    public void StopCoroutineCustom()
+    {
+        exitToCoro = true;
+        StopAllCoroutines();
+    }
+    
     public IEnumerator MoveToPosition(float timeToReachEarth)
-	{
+    {
+        exitToCoro = false;
 		shipObjects[currentRace].transform.position = startPos;
 		var currentPos = shipObjects[currentRace].transform.position;
 		float currTime = 0f;
 		remainingTimePerc = 0f;
-		while (currTime < timeToReachEarth)
+		while (currTime < timeToReachEarth && !exitToCoro)
 		{
 			currTime += Time.deltaTime;
 			remainingTimePerc += Time.deltaTime / timeToReachEarth;
 			shipObjects[currentRace].transform.position = Vector3.Lerp(startPos, earthObject.transform.position - new Vector3(0f, 20f, 0f), currTime/timeToReachEarth);
             yield return null;
         }
+    }
+
+    public void Jump()
+    {
+        shipObjects[currentRace].transform.DOJump(shipObjects[currentRace].transform.position + new Vector3(-600f, -100, 0), 40, 1, 2.5f);
     }
 
 	public void attack() {
