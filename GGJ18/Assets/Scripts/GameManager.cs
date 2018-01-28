@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 		GamePhase();
 	}
 
-	IEnumerator delayedGamePhase(float delay) {
+	public IEnumerator delayedGamePhase(float delay) {
 		yield return new WaitForSeconds(delay);
 		GamePhase();
 	}

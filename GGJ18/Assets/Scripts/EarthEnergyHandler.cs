@@ -13,13 +13,16 @@ public class EarthEnergyHandler : MonoBehaviour {
 	public GameManager manager;
 
 	void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam")
-            earthEnergyValue -= 1;
+		if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam") {
+			//Debug.Log("ENTER");
+			damage();
+			//coll.enabled = false;
+			if(earthEnergyValue > 0) {
+				StartCoroutine(manager.delayedGamePhase(1f));
+			}
+		}
 
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
-
-        damage();
-		manager.GamePhase();
     }
 
 	public void damage() {
@@ -50,8 +53,6 @@ public class EarthEnergyHandler : MonoBehaviour {
 			yield return null;
 		}
 		laser.fillAmount = 1;
-
-
 	}
 
 

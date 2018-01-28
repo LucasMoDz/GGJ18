@@ -41,11 +41,13 @@ public class SpaceShipHandler : MonoBehaviour {
 	{
 		shipObjects[currentRace].transform.position = startPos;
 		var currentPos = shipObjects[currentRace].transform.position;
+		float currTime = 0f;
 		remainingTimePerc = 0f;
-		while (remainingTimePerc < 1)
+		while (currTime < timeToReachEarth)
 		{
+			currTime += Time.deltaTime;
 			remainingTimePerc += Time.deltaTime / timeToReachEarth;
-			shipObjects[currentRace].transform.position = Vector3.Lerp(currentPos, earthObject.transform.position, remainingTimePerc);
+			shipObjects[currentRace].transform.position = Vector3.Lerp(startPos, earthObject.transform.position - new Vector3(0f, 20f, 0f), currTime/timeToReachEarth);
             yield return null;
         }
     }
