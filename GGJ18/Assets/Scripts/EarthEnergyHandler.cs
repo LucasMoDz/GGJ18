@@ -10,14 +10,16 @@ public class EarthEnergyHandler : MonoBehaviour {
 	public GameObject[] shields;
 	public Image laser;
 
-    void OnTriggerEnter2D(Collider2D coll)
-    {
+	public GameManager manager;
+
+	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam")
             earthEnergyValue -= 1;
 
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
 
         CheckEnergy();
+		manager.GamePhase();
     }
 
 	public void damage() {
