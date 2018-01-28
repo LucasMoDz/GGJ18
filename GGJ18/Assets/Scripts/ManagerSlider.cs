@@ -29,8 +29,8 @@ public class ManagerSlider : MonoBehaviour
             Debug.LogError("\"Range\" is null, please fix it.\n");
             return;
         }
-        
-        range.localPosition = Vector3.zero;
+
+        range.localPosition = new Vector3(range.localPosition.x, 0, 0);
         totalPositionRange = maxPositionY + Mathf.Abs(minPositionY);
         
         range.sizeDelta = new Vector2(range.sizeDelta.x, this.GetComponent<RectTransform>().sizeDelta.y * ratioRangeSlider);

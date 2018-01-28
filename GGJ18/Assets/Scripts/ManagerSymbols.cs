@@ -21,6 +21,10 @@ public class ManagerSymbols : MonoBehaviour
         myTransform = this.transform;
         UtilitiesUI.ObjectDeactivation(this.GetComponent<CanvasGroup>());
 
+		SymbolsEvents.ActivatePanel = null;
+		SymbolsEvents.IncreaseAlpha = null;
+		SymbolsEvents.DecreaseAlpha = null;
+
         SymbolsEvents.ActivatePanel += _list =>
         {
             UtilitiesUI.ObjectActivation(this.GetComponent<CanvasGroup>(), ConstantValues.FADEINTIME);
