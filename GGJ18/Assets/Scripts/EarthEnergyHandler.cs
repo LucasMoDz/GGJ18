@@ -55,6 +55,17 @@ public class EarthEnergyHandler : MonoBehaviour {
 		laser.fillAmount = 1;
 	}
 
+	void Update() {
+		if(earthEnergyValue == 3) {
+			GetComponent<Image>().color = Color.cyan;
+		}
+		if(earthEnergyValue == 2) {
+			GetComponent<Image>().color = Color.yellow;
+		}
+		else if(earthEnergyValue == 1) {
+			GetComponent<Image>().color =  Color.red;
+		}
+	}
 
 
     public void CheckEnergy ()
@@ -68,6 +79,7 @@ public class EarthEnergyHandler : MonoBehaviour {
                 // Turn off shield earth
                 //transform.GetChild(0).gameObject.SetActive(false);
 				shields[0].gameObject.SetActive(false);
+				
                 break;
 
             case 1:
