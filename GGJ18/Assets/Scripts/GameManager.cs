@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
 				spaceShip.StopAllCoroutines();
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
 				StartCoroutine(delayedGamePhase(2f));
-		
 			}
 			else {
 				Debug.Log("WRONG");
@@ -100,7 +99,6 @@ public class GameManager : MonoBehaviour
 				//TODO explosion effect
 				spaceShip.earthObject.GetComponent<EarthEnergyHandler>().attack();
 				StartCoroutine(delayedGamePhase(2f));
-
 			}
 			else {
 				Debug.Log("WRONG");
