@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44659364, g: 0.4964301, b: 0.5748256, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -360,7 +360,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   earthObject: {fileID: 201760641}
   remainingTimePerc: 0
-  shipObjects: []
+  shipObjects:
+  - {fileID: 1589945334}
+  - {fileID: 1679137828}
+  - {fileID: 1392353845}
   currentRace: 0
 --- !u!4 &117389743
 Transform:
@@ -485,7 +488,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 152760852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132481841}
+        m_MethodName: sendPeace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &183924919
@@ -544,7 +558,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1956029372}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -651,7 +665,7 @@ MonoBehaviour:
   shields:
   - {fileID: 1465152556}
   - {fileID: 461679120}
-  laser: {fileID: 0}
+  laser: {fileID: 1689360460}
   manager: {fileID: 1026936849}
 --- !u!1 &346820833
 GameObject:
@@ -922,7 +936,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 425737028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132481841}
+        m_MethodName: sendNeutral
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &461679120
@@ -954,7 +979,7 @@ RectTransform:
   m_LocalScale: {x: 1.000043, y: 1.000043, z: 1.000043}
   m_Children: []
   m_Father: {fileID: 1956029372}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1649,21 +1674,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224447010522859270, guid: e57288b72e5be3f4d947bda9fefeb464,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224447010522859270, guid: e57288b72e5be3f4d947bda9fefeb464,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224447010522859270, guid: e57288b72e5be3f4d947bda9fefeb464,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.08740998
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e57288b72e5be3f4d947bda9fefeb464, type: 2}
   m_IsPrefabParent: 0
@@ -1940,6 +1950,7 @@ GameObject:
   - component: {fileID: 1132481838}
   - component: {fileID: 1132481840}
   - component: {fileID: 1132481839}
+  - component: {fileID: 1132481841}
   m_Layer: 5
   m_Name: Desk
   m_TagString: Untagged
@@ -2001,6 +2012,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132481837}
+--- !u!114 &1132481841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132481837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abe59cb2698d8b428621f7b187f2de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1026936849}
 --- !u!1001 &1168336648
 Prefab:
   m_ObjectHideFlags: 0
@@ -2198,25 +2221,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1881690427088854, guid: 94eb13021036ced4fbed743976470ccd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224728274180935542, guid: 94eb13021036ced4fbed743976470ccd,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224728274180935542, guid: 94eb13021036ced4fbed743976470ccd,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224728274180935542, guid: 94eb13021036ced4fbed743976470ccd,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.08740998
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94eb13021036ced4fbed743976470ccd, type: 2}
   m_IsPrefabParent: 0
@@ -2225,32 +2229,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1881690427088854, guid: 94eb13021036ced4fbed743976470ccd,
     type: 2}
   m_PrefabInternal: {fileID: 1235767937}
---- !u!114 &1392353846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1392353845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e24340af7b246029cc37cab0c2ab2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &1392353847
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1392353845}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 10.4}
-  serializedVersion: 2
-  m_Radius: 90
 --- !u!224 &1412094365 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224834394452778716, guid: 320ed5c5323194a479d8764c7786df94,
@@ -2285,7 +2263,7 @@ RectTransform:
   m_LocalScale: {x: 1.000043, y: 1.000043, z: 1.000043}
   m_Children: []
   m_Father: {fileID: 1956029372}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2439,25 +2417,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1161736946828202, guid: ae743be66ce960b4e84640e40863118b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224673686449966992, guid: ae743be66ce960b4e84640e40863118b,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224673686449966992, guid: ae743be66ce960b4e84640e40863118b,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.08740998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224673686449966992, guid: ae743be66ce960b4e84640e40863118b,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.08740998
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae743be66ce960b4e84640e40863118b, type: 2}
   m_IsPrefabParent: 0
@@ -2535,7 +2494,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513107657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132481841}
+        m_MethodName: sendWar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1513107657
@@ -2576,63 +2546,83 @@ GameObject:
   m_PrefabParentObject: {fileID: 1485178220395264, guid: e57288b72e5be3f4d947bda9fefeb464,
     type: 2}
   m_PrefabInternal: {fileID: 689417586}
---- !u!114 &1589945335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1589945334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e24340af7b246029cc37cab0c2ab2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &1589945336
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1589945334}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 10.4}
-  serializedVersion: 2
-  m_Radius: 90
 --- !u!1 &1679137828 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1161736946828202, guid: ae743be66ce960b4e84640e40863118b,
     type: 2}
   m_PrefabInternal: {fileID: 1511641276}
---- !u!114 &1679137829
+--- !u!1 &1689360458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1400258220789218, guid: 94eb13021036ced4fbed743976470ccd,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1689360459}
+  - component: {fileID: 1689360461}
+  - component: {fileID: 1689360460}
+  m_Layer: 5
+  m_Name: laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1689360459
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224691473346654762, guid: 94eb13021036ced4fbed743976470ccd,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689360458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 11.967345}
+  m_LocalScale: {x: 1.000043, y: 1.000043, z: 1.000043}
+  m_Children: []
+  m_Father: {fileID: 1956029372}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00030486236, y: 699.9667}
+  m_SizeDelta: {x: 100, y: 1469.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1689360460
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114872228517472612, guid: 94eb13021036ced4fbed743976470ccd,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1679137828}
+  m_GameObject: {fileID: 1689360458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e24340af7b246029cc37cab0c2ab2b, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1679137830
-CircleCollider2D:
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 0
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1689360461
+CanvasRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 222447935642568762, guid: 94eb13021036ced4fbed743976470ccd,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1679137828}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 10.4}
-  serializedVersion: 2
-  m_Radius: 90
+  m_GameObject: {fileID: 1689360458}
 --- !u!224 &1719713287 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224728274180935542, guid: 94eb13021036ced4fbed743976470ccd,
@@ -6218,6 +6208,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1689360459}
   - {fileID: 201760642}
   - {fileID: 1465152557}
   - {fileID: 461679121}

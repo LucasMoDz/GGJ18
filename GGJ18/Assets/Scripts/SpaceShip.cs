@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class SpaceShip : MonoBehaviour {
 
-	Image laser;
+	public Image laser;
 
 	// Use this for initialization
 	void Start () {
-		laser = transform.GetChild(0).GetComponentInChildren<Image>();
+		//laser = transform.GetChild(0).GetComponentInChildren<Image>();
 		//laser.fillAmount = .5f;
 
 	}

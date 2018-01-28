@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
 
         // Move space ship
 		SpaceshipEvents.moveToPosition(timeToReachEarth);
+
+		spaceShip.reset();
+		spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
     }
 
 	public void handleAnswer(Meaning meaning) {
