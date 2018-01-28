@@ -16,7 +16,7 @@ public class ManagerSymbols : MonoBehaviour
 
     private Transform myTransform;
 
-    private void Awake()
+    private void Start()
     {
         myTransform = this.transform;
         UtilitiesUI.ObjectDeactivation(this.GetComponent<CanvasGroup>());
@@ -24,6 +24,11 @@ public class ManagerSymbols : MonoBehaviour
         SymbolsEvents.ActivatePanel += _list =>
         {
             UtilitiesUI.ObjectActivation(this.GetComponent<CanvasGroup>(), ConstantValues.FADEINTIME);
+
+            for (int i = 0; i < this.transform.childCount; i++)
+            {
+                Destroy(this.transform.GetChild(i).gameObject);
+            }
 
             for (int i = 0; i < _list.Count; i++)
             {

@@ -4,6 +4,13 @@
     {
         base.PreInitialization();
 
-        DontDestroyOnLoad(this.gameObject);
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }

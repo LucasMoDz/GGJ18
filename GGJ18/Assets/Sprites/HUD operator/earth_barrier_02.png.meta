@@ -1,59 +1,35 @@
 fileFormatVersion: 2
-guid: bfbd79b2fbe99024fb7ca17bc0eef499
-timeCreated: 1517087710
+guid: 45e2647e16346204bb45bc8ce2b7cec3
+timeCreated: 1517101590
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: holo_earth_0
-    21300002: holo_earth_1
-    21300004: holo_earth_2
-    21300006: holo_earth_3
-    21300008: holo_earth_4
-    21300010: holo_earth_5
-    21300012: holo_earth_6
-    21300014: holo_earth_7
-    21300016: holo_earth_8
-    21300018: holo_earth_9
-    21300020: holo_earth_10
-    21300022: holo_earth_11
-    21300024: holo_earth_12
-    21300026: holo_earth_13
-    21300028: holo_earth_14
-    21300030: holo_earth_15
-    21300032: holo_earth_16
-    21300034: holo_earth_17
-    21300036: holo_earth_18
-    21300038: holo_earth_19
-    21300040: holo_earth_20
-    21300042: holo_earth_21
-    21300044: holo_earth_22
-    21300046: holo_earth_23
-    21300048: holo_earth_24
-    21300050: holo_earth_25
-    21300052: holo_earth_26
-    21300054: holo_earth_27
-    21300056: holo_earth_28
-    21300058: holo_earth_29
-    21300060: holo_earth_30
-    21300062: holo_earth_31
-    21300064: holo_earth_32
-    21300066: holo_earth_33
-    21300068: holo_earth_34
-    21300070: holo_earth_35
-    21300072: holo_earth_36
-    21300074: holo_earth_37
-    21300076: holo_earth_38
-    21300078: holo_earth_39
-    21300080: holo_earth_40
-    21300082: holo_earth_41
-    21300084: holo_earth_42
-    21300086: holo_earth_43
-    21300088: holo_earth_44
-    21300090: holo_earth_45
-    21300092: holo_earth_46
-    21300094: holo_earth_47
-    21300096: holo_earth_48
-    21300098: holo_earth_49
+    21300000: earth_barrier_02_0
+    21300002: earth_barrier_02_1
+    21300004: earth_barrier_02_2
+    21300006: earth_barrier_02_3
+    21300008: earth_barrier_02_4
+    21300010: earth_barrier_02_5
+    21300012: earth_barrier_02_6
+    21300014: earth_barrier_02_7
+    21300016: earth_barrier_02_8
+    21300018: earth_barrier_02_9
+    21300020: earth_barrier_02_10
+    21300022: earth_barrier_02_11
+    21300024: earth_barrier_02_12
+    21300026: earth_barrier_02_13
+    21300028: earth_barrier_02_14
+    21300030: earth_barrier_02_15
+    21300032: earth_barrier_02_16
+    21300034: earth_barrier_02_17
+    21300036: earth_barrier_02_18
+    21300038: earth_barrier_02_19
+    21300040: earth_barrier_02_20
+    21300042: earth_barrier_02_21
+    21300044: earth_barrier_02_22
+    21300046: earth_barrier_02_23
+    21300048: earth_barrier_02_24
+    21300050: earth_barrier_02_25
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -150,231 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: holo_earth_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_6
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_9
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_10
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_11
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_12
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_13
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_14
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_15
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 1280
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_16
+      name: earth_barrier_02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -388,7 +140,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_17
+      name: earth_barrier_02_1
       rect:
         serializedVersion: 2
         x: 256
@@ -402,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_18
+      name: earth_barrier_02_2
       rect:
         serializedVersion: 2
         x: 512
@@ -416,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_19
+      name: earth_barrier_02_3
       rect:
         serializedVersion: 2
         x: 768
@@ -430,7 +182,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_20
+      name: earth_barrier_02_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -444,7 +196,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_21
+      name: earth_barrier_02_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -458,35 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_22
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_23
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_24
+      name: earth_barrier_02_6
       rect:
         serializedVersion: 2
         x: 0
@@ -500,7 +224,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_25
+      name: earth_barrier_02_7
       rect:
         serializedVersion: 2
         x: 256
@@ -514,7 +238,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_26
+      name: earth_barrier_02_8
       rect:
         serializedVersion: 2
         x: 512
@@ -528,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_27
+      name: earth_barrier_02_9
       rect:
         serializedVersion: 2
         x: 768
@@ -542,7 +266,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_28
+      name: earth_barrier_02_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -556,7 +280,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_29
+      name: earth_barrier_02_11
       rect:
         serializedVersion: 2
         x: 1280
@@ -570,35 +294,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_30
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_31
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_32
+      name: earth_barrier_02_12
       rect:
         serializedVersion: 2
         x: 0
@@ -612,7 +308,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_33
+      name: earth_barrier_02_13
       rect:
         serializedVersion: 2
         x: 256
@@ -626,7 +322,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_34
+      name: earth_barrier_02_14
       rect:
         serializedVersion: 2
         x: 512
@@ -640,7 +336,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_35
+      name: earth_barrier_02_15
       rect:
         serializedVersion: 2
         x: 768
@@ -654,7 +350,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_36
+      name: earth_barrier_02_16
       rect:
         serializedVersion: 2
         x: 1024
@@ -668,7 +364,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_37
+      name: earth_barrier_02_17
       rect:
         serializedVersion: 2
         x: 1280
@@ -682,35 +378,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_38
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_39
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_40
+      name: earth_barrier_02_18
       rect:
         serializedVersion: 2
         x: 0
@@ -724,7 +392,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_41
+      name: earth_barrier_02_19
       rect:
         serializedVersion: 2
         x: 256
@@ -738,7 +406,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_42
+      name: earth_barrier_02_20
       rect:
         serializedVersion: 2
         x: 512
@@ -752,7 +420,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_43
+      name: earth_barrier_02_21
       rect:
         serializedVersion: 2
         x: 768
@@ -766,7 +434,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_44
+      name: earth_barrier_02_22
       rect:
         serializedVersion: 2
         x: 1024
@@ -780,7 +448,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_45
+      name: earth_barrier_02_23
       rect:
         serializedVersion: 2
         x: 1280
@@ -794,35 +462,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_46
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_47
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: holo_earth_48
+      name: earth_barrier_02_24
       rect:
         serializedVersion: 2
         x: 0
@@ -836,7 +476,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: holo_earth_49
+      name: earth_barrier_02_25
       rect:
         serializedVersion: 2
         x: 256

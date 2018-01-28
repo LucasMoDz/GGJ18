@@ -24,6 +24,8 @@ public class ManagerGameOver : MonoBehaviour
     {
         canvasGroup = this.GetComponent<CanvasGroup>();
 
+        retry.onClick.AddListener(() => { UnityEngine.SceneManagement.SceneManager.LoadScene(0); });//Todo: mercury fai il tuo fade! })
+
         if (canvasGroup == null)
         {
             Debug.LogError("Public reference on ManagerGameOver is null, fix it\n");
@@ -41,6 +43,10 @@ public class ManagerGameOver : MonoBehaviour
 
             lastScore.text = pointClass.currentPoints.ToString();
             record.text = pointClass.record.ToString();
+
+            SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
+            spaceShip.reset();
+            spaceShip.earthObject.GetComponent<EarthEnergyHandler>().reset();
         }
     }
 }

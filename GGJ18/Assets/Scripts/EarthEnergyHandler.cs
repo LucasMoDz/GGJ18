@@ -18,7 +18,7 @@ public class EarthEnergyHandler : MonoBehaviour {
 
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
 
-        CheckEnergy();
+        damage();
 		manager.GamePhase();
     }
 
@@ -32,7 +32,11 @@ public class EarthEnergyHandler : MonoBehaviour {
 		StartCoroutine(fill(.8f));
 	}
 
-	public void reset() {
+	public void reset()
+    {
+        if (laser == null)
+            return;
+
 		laser.fillAmount = 0;
 	}
 

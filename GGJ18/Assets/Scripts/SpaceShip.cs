@@ -15,8 +15,13 @@ public class SpaceShip : MonoBehaviour {
 
 	}
 
-	public void reset() {
+	public void reset()
+    {
 		StopAllCoroutines();
+
+        if (laser == null)
+            return;
+
 		laser.fillAmount = 0;
 	}
 
