@@ -9,6 +9,16 @@ public class AlphabetHandler : MonoBehaviour {
     public GameObject[] alphabetCanvas;
     public GameObject[] raceButton;
 
+    public GameObject fadeImage;
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            fadeImage.GetComponent<MainMenu>().LoadLevel(0);
+        }
+    }
+
     public void SetValue(int value)
     {
         alphabetValue = value;
