@@ -9,9 +9,10 @@ public class PointMgr : MonoBehaviour {
 	public int currentPoints;
     public int record;
 	public Text pointsTxt;
+    public Text gainedPoint;
 
     private void Awake()
-    {
+    {gainedPoint.gameObject.SetActive(false);
         int recordSaved = UtilitiesGen.ReadingByFile<int>(FileName.PlayerData);
         record = recordSaved;
     }
@@ -20,16 +21,53 @@ public class PointMgr : MonoBehaviour {
 		spaceShipMultiplier = 1;
 	}
 
-	public void spaceShipRight(float timeLeftPerc) {
-		//Debug.Log( 100f*timeLeftPerc );
-		
-		currentPoints += (spaceShipMultiplier + (int)(timeLeftPerc*100f));
-		spaceShipMultiplier++;
+	public void spaceShipRight(float timeLeftPerc)
+	{
+	    gainedPoint.color = Color.green;
+        gainedPoint.gameObject.SetActive(true);
+	    gainedPoint.text = "+" + (spaceShipMultiplier + (int)(timeLeftPerc * 100f));
+        Color mycolod = pointsTxt.color;
+	    //pointsTxt.color = Color.green;
+	    UtilitiesGen.CallMethod(1f, () =>
+	    {
+	        gainedPoint.color = mycolod;
+
+            gainedPoint.gameObject.SetActive(false);
+            pointsTxt.color = mycolod;
+
+	        currentPoints += (spaceShipMultiplier + (int)(timeLeftPerc * 100f));
+	        spaceShipMultiplier++;
+        });
+
+        
 	}
 
 	public void spaceShipWrong() {
 		spaceShipMultiplier = 1;
 	}
+
+    public void DecreasePoint()
+    {
+        Color defaultcolor = gainedPoint.color;
+        gainedPoint.text = "-500";
+        gainedPoint.color = Color.red;
+        gainedPoint.gameObject.SetActive(true);
+        Color mycolod = pointsTxt.color;
+        //pointsTxt.color = Color.red;
+       
+
+        UtilitiesGen.CallMethod(1, () =>
+        {
+            gainedPoint.color = defaultcolor;
+            gainedPoint.gameObject.SetActive(false);
+            pointsTxt.color = mycolod;
+
+            currentPoints -= 500;
+
+            if (currentPoints < 0)
+                currentPoints = 0;
+        });
+    }
 
 	void Start () {
 		
