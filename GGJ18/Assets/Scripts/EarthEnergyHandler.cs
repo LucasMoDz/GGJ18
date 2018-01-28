@@ -16,18 +16,18 @@ public class EarthEnergyHandler : MonoBehaviour {
 		if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam") {
 			//Debug.Log("ENTER");
 			damage();
-			//coll.enabled = false;
+			coll.enabled = false;
 			if(earthEnergyValue > 0) {
 				StartCoroutine(manager.delayedGamePhase(1f));
 			}
 		}
-
         Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
     }
 
 	public void damage() {
 		earthEnergyValue -= 1;
 		CheckEnergy();
+		GetComponent<CircleCollider2D>().radius *= .9f;
 	}
 
 	public void attack() {

@@ -73,5 +73,7 @@ public class SpaceShipHandler : MonoBehaviour {
 			shipObjects[i].SetActive(false);
 		}
 		shipObjects[currentRace].SetActive(true);
+		shipObjects[currentRace].GetComponent<CircleCollider2D>().enabled = true;
+
     }
 }
