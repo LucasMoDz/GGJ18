@@ -10,47 +10,62 @@ public class EarthEnergyHandler : MonoBehaviour {
 
 	public GameObject[] shields;
 	public Image laser;
+    public bool hit;
 
 	public GameManager manager;
 
 	public ParticleSystem damageParticle;
 
 	void Start() {
-		damageParticle.Stop();
+        GetComponent<Image>().color = Color.cyan;
+
+        damageParticle.Stop();
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		if (coll.gameObject.tag == "Spaceship" || coll.gameObject.tag == "Laserbeam") {
-			//Debug.Log("ENTER");
-			damage();
-			coll.enabled = false;
-			if(earthEnergyValue > 0) {
-				StartCoroutine(manager.delayedGamePhase(1f));
-			}
-		}
-        Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
+
+        if (coll.gameObject.tag == "Laserbeam")
+        {
+            //Debug.Log("ENTER");
+            coll.enabled = false;
+            damage();
+        }
+
+        if (coll.gameObject.tag == "Spaceship")
+        {
+            hit = true;
+            coll.enabled = false;
+            damage();
+        }
+
     }
 
 	public void damage() {
-		earthEnergyValue -= 1;
-		CheckEnergy();
-		GetComponent<CircleCollider2D>().radius *= .9f;
 
-	    if (!this.gameObject.activeSelf)
-	        return;
+        earthEnergyValue -= 1;
+        GetComponent<CircleCollider2D>().radius *= .9f;
 
-		StartCoroutine(explosion());
-	}
+        if (!this.gameObject.activeSelf)
+            return;
+
+        Debug.Log("La terra è stata attaccata! Energia rimasta= " + earthEnergyValue);
+
+        StartCoroutine(explosion());
+
+    }
 
 	IEnumerator explosion() {
-		yield return new WaitForSeconds(.9f);
-		damageParticle.Play();
-	}
+
+        yield return new WaitForSeconds(.5f);
+        damageParticle.Play();
+        yield return new WaitForSeconds(.5f);
+        CheckEnergy();
+
+    }
 
 	public void attack() {
         
-	        EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Laser03);
-
+	    EventManager.Invoke(SoundManagerTopics.PlayEffect, AudioClipName.Laser03);
 
         StartCoroutine(fill(.4f));
 		StartCoroutine(explodeShip(.5f));
@@ -63,6 +78,8 @@ public class EarthEnergyHandler : MonoBehaviour {
 
 	public void reset()
     {
+        hit = false;
+
         if (laser == null)
             return;
 		laser.fillAmount = 0;
@@ -109,6 +126,7 @@ public class EarthEnergyHandler : MonoBehaviour {
         laser.color = new Color(1, 1, 1, 0);
     }
 
+
     /*
     IEnumerator fill(float time) {
 		yield return new WaitForSeconds(.5f);
@@ -122,17 +140,19 @@ public class EarthEnergyHandler : MonoBehaviour {
 		laser.fillAmount = 1;
 	}
     */
-	void Update() {
-		if(earthEnergyValue == 3) {
-			GetComponent<Image>().color = Color.cyan;
-		}
-		if(earthEnergyValue == 2) {
-			GetComponent<Image>().color = Color.yellow;
-		}
-		else if(earthEnergyValue == 1) {
-			GetComponent<Image>().color =  Color.red;
-		}
-	}
+
+
+	//void Update() {
+	//	if(earthEnergyValue == 3) {
+	//		GetComponent<Image>().color = Color.cyan;
+	//	}
+	//	if(earthEnergyValue == 2) {
+	//		GetComponent<Image>().color = Color.yellow;
+	//	}
+	//	else if(earthEnergyValue == 1) {
+	//		GetComponent<Image>().color =  Color.red;
+	//	}
+	//}
 
 
     public void CheckEnergy ()
@@ -146,29 +166,65 @@ public class EarthEnergyHandler : MonoBehaviour {
                 // Turn off shield earth
                 //transform.GetChild(0).gameObject.SetActive(false);
 				shields[0].gameObject.SetActive(false);
-				
+                GetComponent<Image>().color = Color.yellow;
+
+                CheckHit();
+
                 break;
 
             case 1:
 
-                //Far partire effetto distruzione della prima barriera
+                //Far partire effetto distruzione della seconda barriera
+                GetComponent<Image>().color = Color.red;
 
                 // Turn off shield earth
                 //this.transform.GetChild(1).gameObject.SetActive(false);
-				shields[1].gameObject.SetActive(false);
+                shields[1].gameObject.SetActive(false);
+
+                CheckHit();
+
                 break;
 
             case 0:
                 //Far partire effetto distruzione della terra
+                CheckHit();
 
-                // Turn off earth
-
-                this.transform.gameObject.SetActive(false);
-                
                 // Call open game over panel request
                 GameOverEvent.OpenPanel();
 
                 break;
         }
+
     }
+
+
+    public void CheckHit ()
+    {
+        if (hit)
+        {
+            manager.spaceShip.StopCoroutineCustom();
+            manager.spaceShip.Jump();
+            //Se la vita è maggiore di zero fa partire una nuova game phase
+            if (earthEnergyValue > 0)
+            {
+                Debug.Log("Nuova navicella!");
+                StartCoroutine(manager.delayedGamePhase(2f));
+            }
+            else
+            {
+                Debug.Log("GAME OVER!");
+                // Turn off earth
+                this.transform.gameObject.SetActive(false);
+            }
+        } else
+        {
+            if (earthEnergyValue <= 0)
+            {
+                Debug.Log("GAME OVER!");
+                // Turn off earth
+                this.transform.gameObject.SetActive(false);
+            }
+        }
+    }
+
 }

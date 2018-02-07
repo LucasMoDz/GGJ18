@@ -45,9 +45,15 @@ public class GameManager : MonoBehaviour
 	}
 
 	public IEnumerator delayedGamePhase(float delay) {
-		yield return new WaitForSeconds(delay);
-		GamePhase();
-	}
+        yield return new WaitForSeconds(delay);
+        if (spaceShip.earthObject.GetComponent<EarthEnergyHandler>().earthEnergyValue > 0)
+        {
+            if (spaceShip.earthObject.gameObject.activeSelf)
+            {
+                GamePhase();
+            }
+        }
+    }
 
     public void GamePhase()
     {
@@ -89,7 +95,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public ParticleSystem cuori;
+
+
 	public void handleAnswer(Meaning nostro) {
 
 		Debug.Log(nostro);
@@ -97,7 +106,8 @@ public class GameManager : MonoBehaviour
 		if(nostro.Equals(Meaning.PEACE)) {
 			if(lastMeaning.Equals(Meaning.PEACE)) {
 				Debug.Log("RIGHT");
-				spaceShip.StopCoroutineCustom();
+                spaceShip.DisableCircleCollider2D();
+                spaceShip.StopCoroutineCustom();
 			    symbols.spawnParticles(Meaning.PEACE);
                 spaceShip.Jump();
 				pointMgr.spaceShipRight(spaceShip.remainingTimePerc);
@@ -105,7 +115,8 @@ public class GameManager : MonoBehaviour
 			}
 			else {
 				Debug.Log("WRONG");
-			    spaceShip.StopCoroutineCustom();
+                spaceShip.DisableCircleCollider2D();
+                spaceShip.StopCoroutineCustom();
                 pointMgr.spaceShipWrong();
 				spaceShip.attack();
 				StartCoroutine(delayedGamePhase(3.2f));

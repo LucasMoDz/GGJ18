@@ -977,8 +977,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114122349675823412, guid: 0f536915877883d46b1674876ff1e85b, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f536915877883d46b1674876ff1e85b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &646358421
@@ -1273,23 +1272,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 678201271}
---- !u!1 &710759848 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1981697443382728, guid: 0f536915877883d46b1674876ff1e85b,
-    type: 2}
-  m_PrefabInternal: {fileID: 598116706}
---- !u!114 &710759849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 710759848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a40141d6af59d4aaa750ff4ea98cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMode: 1
 --- !u!1 &741623116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,12 +3106,12 @@ Prefab:
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.23413
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 165.37122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
@@ -3159,7 +3141,7 @@ Prefab:
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
@@ -3169,7 +3151,7 @@ Prefab:
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 6.3
+      value: 6.299988
       objectReference: {fileID: 0}
     - target: {fileID: 224978817116958436, guid: c3c2b9accd340564faf1bf804e5856d0,
         type: 2}

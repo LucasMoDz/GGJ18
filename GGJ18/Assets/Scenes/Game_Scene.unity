@@ -4159,6 +4159,7 @@ MonoBehaviour:
   - {fileID: 461679120}
   - {fileID: 1465152556}
   laser: {fileID: 1689360460}
+  hit: 0
   manager: {fileID: 1026936849}
   damageParticle: {fileID: 1036403198}
   isCollided: 0
@@ -7788,7 +7789,7 @@ GameObject:
   - component: {fileID: 346820835}
   - component: {fileID: 346820834}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8299,7 +8300,7 @@ GameObject:
   - component: {fileID: 524533056}
   - component: {fileID: 524533055}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_Env
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14406,6 +14407,11 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198778314956720884, guid: ba704e0276a67d5428fe0298a67af287,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.minScalar
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198778314956720884, guid: ba704e0276a67d5428fe0298a67af287,
         type: 2}

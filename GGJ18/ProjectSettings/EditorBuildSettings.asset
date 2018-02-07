@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2a43eba919fee444fae23d93038c422c
   - enabled: 1
-    path: Assets/Scenes/Gameplay Operatore 1.unity
+    path: Assets/Scenes/Game_Scene.unity
     guid: 16141a3e457bbdb42944d03c3c2db893
   - enabled: 1
-    path: Assets/Scenes/Dizionari.unity
+    path: Assets/Scenes/Codex_Scene.unity
     guid: 63231bdb1d831c447bee65dc0cb39ca7

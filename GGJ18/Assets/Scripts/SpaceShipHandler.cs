@@ -53,7 +53,7 @@ public class SpaceShipHandler : MonoBehaviour {
 		remainingTimePerc = 0f;
 		while (currTime < timeToReachEarth && !exitToCoro)
 		{
-		    if (currTime > 14 || currTime < 3)
+		    if (currTime > 15 || currTime < 1.5f)
 		    {
 		        interaction.Block();
 		    }
@@ -66,6 +66,11 @@ public class SpaceShipHandler : MonoBehaviour {
 			remainingTimePerc += Time.deltaTime / timeToReachEarth;
 			shipObjects[currentRace].transform.position = Vector3.Lerp(startPos, earthObject.transform.position - new Vector3(0f, 20f, 0f), currTime/timeToReachEarth);
             yield return null;
+        }
+
+        if (earthObject.GetComponent<EarthEnergyHandler>().hit)
+        {
+            earthObject.GetComponent<EarthEnergyHandler>().manager.delayedGamePhase(2f);
         }
 
         interaction.Block();
@@ -92,7 +97,11 @@ public class SpaceShipHandler : MonoBehaviour {
 		}
 	}
 
-    
+    public void DisableCircleCollider2D()
+    {
+        shipObjects[currentRace].GetComponent<CircleCollider2D>().enabled = false;
+    }
+
     public void SetCurrentSprite (int raceName) {
 		currentRace = raceName;
 		for(int i=0; i<shipObjects.Length; i++)

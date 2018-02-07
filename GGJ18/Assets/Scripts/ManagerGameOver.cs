@@ -17,7 +17,7 @@ public static class GameOverEvent
 public class ManagerGameOver : MonoBehaviour
 {
     public Button retry, exit;
-    public Text lastScore, record;
+    public Text lastScore, bestScore;
     public GameObject fadeImage;
 
     private CanvasGroup canvasGroup;
@@ -42,7 +42,15 @@ public class ManagerGameOver : MonoBehaviour
                 UtilitiesGen.CallMethod(2, ()=> { UtilitiesUI.ObjectActivation(canvasGroup, ConstantValues.FADEINTIME); });
                 PointMgr pointClass = FindObjectOfType<PointMgr>();
 
-                lastScore.text = pointClass.currentPoints.ToString();
+                if (lastScore == null)
+                {
+                    Debug.Log("last score null!!");
+                }
+                else
+                {
+                    lastScore.text = pointClass.currentPoints.ToString();
+                    Debug.Log("last score SETTATO!!");
+                }
 
                 if (pointClass.record < pointClass.currentPoints)
                 {
@@ -50,7 +58,15 @@ public class ManagerGameOver : MonoBehaviour
                     UtilitiesGen.WritingToFile(FileName.PlayerData, pointClass.record);
                 }
 
-                record.text = pointClass.record.ToString();
+                if (bestScore == null)
+                {
+                    Debug.Log("best score null!!");
+                }
+                else
+                {
+                    bestScore.text = pointClass.record.ToString();
+                    Debug.Log("best score SETTATO!!");
+                }
 
                 //SpaceShipHandler spaceShip = FindObjectOfType<SpaceShipHandler>();
                 //spaceShip.reset();
